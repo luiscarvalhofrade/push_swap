@@ -16,6 +16,7 @@
 typedef struct s_list
 {
 	int 			number;
+	char			stack_letter;
 	struct s_list 	*next_number;
 } 					t_list;
 
