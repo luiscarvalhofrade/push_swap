@@ -33,7 +33,7 @@ void	push_to_other_stack(t_list **lst1, t_list **lst2);
 
 t_list	*ft_lstlast(t_list *lst);
 
-int	ft_isdigit(int c);
-int	ft_lstsize(t_list *lst);
+int		ft_isdigit(int c);
+int		ft_lstsize(t_list *lst);
 
 #endif

@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_list *lst;
+	t_list	*lst;
 
 	if (argc < 3)
 		return (ft_printf("Error\n"));

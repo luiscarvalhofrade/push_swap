@@ -32,7 +32,6 @@ void	push_to_other_stack(t_list **lst1, t_list **lst2)
 {
 	t_list	*new_top_lst1;
 	t_list	*new_top_lst2;
-	//t_list	*new_node;
 
 	if (ft_lstsize(*lst1) == 0)
 		return ;
@@ -52,7 +51,7 @@ void	rotate_first_to_bottom(t_list **lst)
 	t_list	*tmp_head;
 	t_list	*new_top;
 	t_list	*tmp_last;
-	
+
 	if (ft_lstsize(*lst) < 2)
 		return ;
 	tmp_head = *lst;
@@ -65,9 +64,9 @@ void	rotate_first_to_bottom(t_list **lst)
 
 void	rotate_last_to_top(t_list **lst)
 {
-	t_list *new_top;
-	t_list *new_second;
-	t_list *new_last;
+	t_list	*new_top;
+	t_list	*new_second;
+	t_list	*new_last;
 
 	if (ft_lstsize(*lst) < 2)
 		return ;
