@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int number, char letter)
 {
 	t_list	*new_lst;
 
 	new_lst = malloc(sizeof(t_list));
 	if (!new_lst)
 		return (0);
-	new_lst->number = content;
-	new_lst->stack_letter = 'a';
+	new_lst->number = number;
+	new_lst->stack_letter = letter;
 	new_lst->next_number = NULL;
 	return (new_lst);
 }

@@ -16,14 +16,14 @@ t_list	*stack_builder(int argc, char **argv)
 {
 	t_list	*new_node;
 	t_list	*lst;
-    int     i;
-    int     k;
+	int		i;
+	int		k;
 
 	lst = NULL;
-    i = 1;
+	i = 1;
 	while (i < argc)
 	{
-        k = 0;
+		k = 0;
 		while (argv[i][k] != '\0')
 		{
 			if (ft_isdigit(argv[i][k]) != 1 || argv[i][k] == '-')
@@ -34,7 +34,7 @@ t_list	*stack_builder(int argc, char **argv)
 		if (!new_node)
 			return (0);
 		ft_lstadd_back(&lst, new_node);
-        i++;
+		i++;
 	}
 	return (lst);
 }
