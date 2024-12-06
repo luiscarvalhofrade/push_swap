@@ -36,12 +36,12 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new_node)
 {
 	if (lst)
 	{
 		if (*lst)
-			new->next_number = *lst;
-		*lst = new;
+			new_node->next_number = *lst;
+		*lst = new_node;
 	}
 }

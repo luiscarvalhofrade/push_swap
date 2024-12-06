@@ -12,57 +12,29 @@
 
 #include "push_swap.h"
 
-int	*convert_argv(int argc, char **argv)
-{
-	int	k;
-	int	*ints_arr;
-
-	argc = argc - 1;
-	ints_arr = (int *)malloc((argc) * sizeof(int));
-	if (!ints_arr)
-		return (0);
-	while (argc > 0)
-	{
-		k = 0;
-		while (argv[argc][k] != '\0')
-		{
-			if (ft_isdigit(argv[argc][k]) != 1)
-			{
-				if (ints_arr)
-					free(ints_arr);
-				return (0);
-			}
-			k++;
-		}
-		ints_arr[argc - 1] = atoi(argv[argc]);
-		argc--;
-	}
-	return (ints_arr);
-}
-
 t_list	*stack_builder(int argc, char **argv)
 {
-	int		*ints_arr;
-	int		*temp_arr;
 	t_list	*new_node;
 	t_list	*lst;
+    int     i;
+    int     k;
 
 	lst = NULL;
-	ints_arr = convert_argv(argc, argv);
-	if (!ints_arr)
-		return (0);
-	temp_arr = ints_arr;
-	while (*temp_arr)
+    i = 1;
+	while (i < argc)
 	{
-		new_node = ft_lstnew(*temp_arr);
-		if (!new_node)
+        k = 0;
+		while (argv[i][k] != '\0')
 		{
-			free(ints_arr);
-			return (NULL);
+			if (ft_isdigit(argv[i][k]) != 1 || argv[i][k] == '-')
+				return (0);
+			k++;
 		}
+		new_node = ft_lstnew((atoi(argv[i])), 'a');
+		if (!new_node)
+			return (0);
 		ft_lstadd_back(&lst, new_node);
-		temp_arr++;
+        i++;
 	}
-	free(ints_arr);
 	return (lst);
 }
