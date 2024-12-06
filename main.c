@@ -16,12 +16,8 @@
 
 int	main(int argc, char *argv)
 {
-	#rule for argc < 2;
-	#understand if we only have int's
-	#create the stack a
-	while (!problem_solved)
-	{
-		#algorithm to solve
-	}	
+	// if we have 1 number or none, we don't have a stack;
+	if (argc < 3)
+		return (ft_printf("Error\n"));
 }
 

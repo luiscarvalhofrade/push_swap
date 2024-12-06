@@ -12,18 +12,41 @@
 
 #include "stack_builder.h"
 
-int	*convert_argv(char *argv)
+int	*convert_argv(int argc, char **argv)
 {
-	#validate if the inputs are numbers;
-	#convert each int using atoi;
-	#save it in an int array;
+	int	k;
+	int	*ints_arr;
+
+	argc = argc - 1;
+	ints_arr = (int *)malloc((argc) * sizeof(int));
+	if (!ints_arr)
+		return (0);
+	while (argc > 0)
+	{
+		k = 0;
+		while (argv[argc][k] != '\0')
+		{
+			if (ft_isdigit(argv[argc][k]) != 1)
+			{
+				if (ints_arr)
+					free(ints_arr);
+				return (0);
+			}
+			k++;
+		}
+		ints_arr[argc - 1] = atoi(argv[argc]);
+		argc--;
+	}
+	return (ints_arr);
 }
 
-t_list	stack_builder(char *argv)
+t_list	stack_builder(int argc, char **argv)
 {
-	#convert_argv: receive error or an array of int;
-	#create the linked list 'a';
-		#it must have to be in the right order;
-	#create the linked list 'b';
-		#must have to have the same length of linked list 'a', but NULL in node->number;
+	int	*ints_arr;
+
+	ints_arr = convert_argv(argc, argv);
+	if (!ints_arr)
+		return (0);
+	while ()
+	
 }
