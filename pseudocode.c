@@ -1,5 +1,5 @@
     
-    #STACK BUILDER
+#STACK BUILDER
     int	*convert_argv(int argc, char **argv)
     {
         #receive inputs on main;
@@ -9,9 +9,12 @@
     }
     
 
-
-    #create the linked list 'a';
-		#it must have to be in the right order;
+    t_list	*stack_builder(int argc, char **argv)
+    {
+        #create the linked list 'a';
+            #it must have to be in the right order;
+        #freed allocated memory for array of ints received from convert_arg;
+    }
 
 
 

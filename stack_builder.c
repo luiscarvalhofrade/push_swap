@@ -40,13 +40,29 @@ int	*convert_argv(int argc, char **argv)
 	return (ints_arr);
 }
 
-t_list	stack_builder(int argc, char **argv)
+t_list	*stack_builder(int argc, char **argv)
 {
-	int	*ints_arr;
+	int		*ints_arr;
+	int		*temp_arr;
+	t_list	*new_node;
+	t_list	*lst;
 
+	lst = NULL;
 	ints_arr = convert_argv(argc, argv);
 	if (!ints_arr)
 		return (0);
-	while ()
-	
+	temp_arr = ints_arr;
+	while (*temp_arr)
+	{
+		new_node = ft_lstnew(*temp_arr);
+		if (!new_node)
+		{
+			free(ints_arr);
+			return (NULL);
+		}
+		ft_lstadd_back(&lst, new_node);
+		temp_arr++;
+	}
+	free(ints_arr);
+	return (lst);
 }

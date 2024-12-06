@@ -16,8 +16,7 @@
 
 int	main(int argc, char *argv)
 {
-	// if we have 1 number or none, we don't have a stack;
 	if (argc < 3)
 		return (ft_printf("Error\n"));
+	return (0);
 }
-

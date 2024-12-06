@@ -13,11 +13,19 @@
 #ifndef STACK_BUILDER_H
 # define STACK_BUILDER_H
 
+# include <stdlib.h>
+
 typedef struct s_list
 {
-	int 			number;
+	int				number;
 	char			stack_letter;
-	struct s_list 	*next_number;
-} 					t_list;
+	struct s_list	*next_number;
+}					t_list;
+
+t_list	*ft_lstnew(int content);
+
+void	ft_lstadd_back(t_list **lst, t_list *new_node);
+
+int		ft_isdigit(int c);
 
 #endif
