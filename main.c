@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack_builder.h"
-#include "movements.h"
-#include "resolution_algorithm.h"
+#include "push_swap.h"
 
-int	main(int argc, char *argv)
+int	main(int argc, char **argv)
 {
+	t_list *lst;
+
 	if (argc < 3)
 		return (ft_printf("Error\n"));
+	lst = stack_builder(argc, argv);
 	return (0);
 }
