@@ -31,7 +31,7 @@ void	rotate_first_to_bottom(t_list **lst);
 void	rotate_last_to_top(t_list **lst);
 void	ft_lstadd_front(t_list **lst, t_list *new_node);
 void	push_to_other_stack(t_list **lst1, t_list **lst2);
-void 	ss(t_list **lst1, t_list **lst2);
+void	ss(t_list **lst1, t_list **lst2);
 void	rr(t_list **lst1, t_list **lst2);
 void	rrr(t_list **lst1, t_list **lst2);
 

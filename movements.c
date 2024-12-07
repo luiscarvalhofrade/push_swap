@@ -28,7 +28,7 @@ void	swap_positions_top(t_list **lst)
 	tmp_swap->next_number = tmp_head;
 }
 
-void 	ss(t_list **lst1, t_list **lst2)
+void	ss(t_list **lst1, t_list **lst2)
 {
 	if (!lst1)
 		swap_positions_top(lst1);
