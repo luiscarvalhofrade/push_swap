@@ -28,6 +28,14 @@ void	swap_positions_top(t_list **lst)
 	tmp_swap->next_number = tmp_head;
 }
 
+void 	ss(t_list **lst1, t_list **lst2)
+{
+	if (!lst1)
+		swap_positions_top(lst1);
+	if (!lst2)
+		swap_positions_top(lst2);
+}
+
 void	push_to_other_stack(t_list **lst1, t_list **lst2)
 {
 	t_list	*new_top_lst1;
@@ -62,6 +70,14 @@ void	rotate_first_to_bottom(t_list **lst)
 	*lst = new_top;
 }
 
+void	rr(t_list **lst1, t_list **lst2)
+{
+	if (!lst1)
+		rotate_first_to_bottom(lst1);
+	if (!lst2)
+		rotate_first_to_bottom(lst2);
+}
+
 void	rotate_last_to_top(t_list **lst)
 {
 	t_list	*new_top;
@@ -78,4 +94,12 @@ void	rotate_last_to_top(t_list **lst)
 	new_last->next_number = NULL;
 	new_top->next_number = new_second;
 	*lst = new_top;
+}
+
+void	rrr(t_list **lst1, t_list **lst2)
+{
+	if (!lst1)
+		rotate_last_to_top(lst1);
+	if (!lst2)
+		rotate_last_to_top(lst2);
 }
