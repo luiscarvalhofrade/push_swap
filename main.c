@@ -12,17 +12,39 @@
 
 #include "push_swap.h"
 
+void	movement_result(t_list *lsta, t_list *lstb)
+{
+	int		i;
+	int		j;
+	t_list	*current;
+	t_list	*currentb;
+
+	current = lsta;
+	printf("\n stack a\n\n");
+	i = 0;
+	while (current)
+	{
+		printf("[%c]no[%d]:%d\n", current->stack_letter, i, current->number);
+		current = current->next_number;
+		i++;
+	}
+	printf("\n stack b\n\n");
+	j = 0;
+	currentb = lstb;
+	while (currentb)
+	{
+		printf("[%c]no[%d]:%d\n", currentb->stack_letter, j, currentb->number);
+		currentb = currentb->next_number;
+		j++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	int	i;
-	int j;
-	t_list *lsta;
-	t_list *lstb;
-	t_list *current;
-	t_list *current_b;
+	t_list	*lsta;
+	t_list	*lstb;
+	int		result;
 
-	i = 0;
-	j = 0;
 	lsta = NULL;
 	lstb = NULL;
 	if (argc < 3)
@@ -30,81 +52,11 @@ int	main(int argc, char **argv)
 	lsta = stack_builder(argc, argv);
 	if (!lsta || lsta == 0)
 		return (printf("Error\n"));
-	current = lsta;
-	printf("\n stack a\n\n");
-	while (current)
-	{
-		printf("stack[%c]node[%d]: %d\n", current->stack_letter, i, current->number);
-		current = current->next_number;
-		i++;
-	}
-	printf("\nstack b\n\n");
-	if (lstb)
-	{
-		current_b = lstb;
-		while (current)
-		{
-			printf("stack[%c]node[%d]: %d\n", current_b->stack_letter, j, current_b->number);
-			current_b = current_b->next_number;
-			j++;
-		}
-	}
+	movement_result(lsta, lstb);
+	result = stack_ascending_checker(&lsta);
 	push_to_other_stack(&lsta, &lstb);
-	push_to_other_stack(&lsta, &lstb);
-	push_to_other_stack(&lsta, &lstb);
-	push_to_other_stack(&lsta, &lstb);
-	push_to_other_stack(&lsta, &lstb);
-	push_to_other_stack(&lstb, &lsta);
-	push_to_other_stack(&lstb, &lsta);
-	printf("\n here I pushed one value from stak a to b\n\n");
-	i = 0;
-	j = 0;
-	current = lsta;
-	printf("stack a\n\n");
-	while (current)
-	{
-		printf("stack[%c]node[%d]: %d\n", current->stack_letter, i, current->number);
-		current = current->next_number;
-		i++;
-	}
-	current_b = lstb;
-	printf("\nstack b\n\n");
-	while (current_b)
-	{
-		printf("stack[%c]node[%d]: %d\n", current_b->stack_letter, j, current_b->number);
-		current_b = current_b->next_number;
-		j++;
-	}
-
-	printf("\n swap here \n\n");
-	swap_positions_top(&lsta);
-	i = 0;
-	current = lsta;
-	while (current)
-	{
-		printf("stack[%c]node[%d]: %d\n", current->stack_letter, i, current->number);
-		current = current->next_number;
-		i++;
-	}
-	printf("\n last to top here \n\n");
-	rotate_last_to_top(&lsta);
-	i = 0;
-	current = lsta;
-	while (current)
-	{
-		printf("stack[%c]node[%d]: %d\n", current->stack_letter, i, current->number);
-		current = current->next_number;
-		i++;
-	}
-	printf("\n first to bottom here \n\n");
-	rotate_first_to_bottom(&lsta);
-	i = 0;
-	current = lsta;
-	while (current)
-	{
-		printf("stack[%c]node[%d]: %d\n", current->stack_letter, i, current->number);
-		current = current->next_number;
-		i++;
-	}
+	movement_result(lsta, lstb);
+	result = stack_ascending_checker(&lsta);
+	printf("\nresult: %d\n", result);
 	return (0);
 }
