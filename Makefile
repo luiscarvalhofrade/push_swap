@@ -29,8 +29,10 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "program cleaned."
+	@echo "Program cleaned."
 
 re: fclean all
+	@echo "Object files recreated."
+	@echo "Program recreated."
 
 .PHONY: all clean fclean re
