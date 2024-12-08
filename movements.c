@@ -28,14 +28,6 @@ void	sx(t_list **lst)
 	tmp_swap->next_number = tmp_head;
 }
 
-void	ss(t_list **lst1, t_list **lst2)
-{
-	if (!lst1)
-		sx(lst1);
-	if (!lst2)
-		sx(lst2);
-}
-
 void	px(t_list **lst1, t_list **lst2)
 {
 	t_list	*new_top_lst1;
@@ -70,14 +62,6 @@ void	rx(t_list **lst)
 	*lst = new_top;
 }
 
-void	rr(t_list **lst1, t_list **lst2)
-{
-	if (!lst1)
-		rx(lst1);
-	if (!lst2)
-		rx(lst2);
-}
-
 void	rrx(t_list **lst)
 {
 	t_list	*new_top;
@@ -94,12 +78,4 @@ void	rrx(t_list **lst)
 	new_last->next_number = NULL;
 	new_top->next_number = new_second;
 	*lst = new_top;
-}
-
-void	rrr(t_list **lst1, t_list **lst2)
-{
-	if (!lst1)
-		rrx(lst1);
-	if (!lst2)
-		rrx(lst2);
 }
