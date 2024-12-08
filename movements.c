@@ -60,6 +60,10 @@ void	rx(t_list **lst)
 	tmp_last->next_number = tmp_head;
 	tmp_head->next_number = NULL;
 	*lst = new_top;
+	if (new_top->stack_letter == 'a')
+		write(1, "ra\n", 2);
+	else
+		write(1, "rb\n", 2);
 }
 
 void	rrx(t_list **lst)
@@ -78,4 +82,8 @@ void	rrx(t_list **lst)
 	new_last->next_number = NULL;
 	new_top->next_number = new_second;
 	*lst = new_top;
+	if (new_top->stack_letter == 'a')
+		write(1, "rra\n", 2);
+	else
+		write(1, "rrb\n", 2);
 }

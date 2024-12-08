@@ -14,24 +14,24 @@
 
 void	ss(t_list **lst1, t_list **lst2)
 {
-	if (!lst1)
+	if (lst1)
 		sx(lst1);
-	if (!lst2)
+	if (lst2)
 		sx(lst2);
 }
 
 void	rr(t_list **lst1, t_list **lst2)
 {
-	if (!lst1)
+	if (lst1)
 		rx(lst1);
-	if (!lst2)
+	if (lst2)
 		rx(lst2);
 }
 
 void	rrr(t_list **lst1, t_list **lst2)
 {
-	if (!lst1)
+	if (lst1)
 		rrx(lst1);
-	if (!lst2)
+	if (lst2)
 		rrx(lst2);
 }

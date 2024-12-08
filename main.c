@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void	movement_result(t_list *lsta, t_list *lstb)
+void	movement_result(t_list *lst1, t_list *lst2)
 {
 	int		i;
 	int		j;
 	t_list	*current;
 	t_list	*currentb;
 
-	current = lsta;
+	current = lst1;
 	printf("\n stack a\n\n");
 	i = 0;
 	while (current)
@@ -30,20 +30,20 @@ void	movement_result(t_list *lsta, t_list *lstb)
 	}
 	printf("\n stack b\n\n");
 	j = 0;
-	currentb = lstb;
+	currentb = lst2;
 	while (currentb)
 	{
 		printf("[%c]no[%d]:%d\n", currentb->stack_letter, j, currentb->number);
 		currentb = currentb->next_number;
 		j++;
 	}
+	printf("\n===============\n");
 }
 
 int	main(int argc, char **argv)
 {
 	t_list	*lsta;
 	t_list	*lstb;
-	int		result;
 
 	lsta = NULL;
 	lstb = NULL;
@@ -52,11 +52,6 @@ int	main(int argc, char **argv)
 	lsta = stack_builder(argc, argv);
 	if (!lsta || lsta == 0)
 		return (printf("Error\n"));
-	movement_result(lsta, lstb);
-	result = stack_ascending_checker(&lsta);
-	push_to_other_stack(&lsta, &lstb);
-	movement_result(lsta, lstb);
-	result = stack_ascending_checker(&lsta);
-	printf("\nresult: %d\n", result);
+	resolution_algorithm(&lsta, &lstb);
 	return (0);
 }

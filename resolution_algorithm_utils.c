@@ -12,42 +12,46 @@
 
 #include "push_swap.h"
 
-int	stack_ascending_checker(t_list **lst)
+int		perform_pa(t_list **lst1, t_list **lst2)
 {
-	t_list	*current;
-	t_list	*next_node;
+	int		lst_len;
 
-	current = *lst;
-	while (current->next_number != NULL)
+	lst_len = ft_lstsize(*lst2);
+	while (lst_len > 0)
 	{
-		next_node = current->next_number;
-		if (current->number > next_node->number)
-			return (0);
-		current = current->next_number;
+		px(lst2, lst1);
+		write(1, "pa\n", 2);
+		lst_len--;
 	}
-	return (1);
+	return (0);
 }
 
-int	perform_px(t_list **lst)
+int	perform_pb(t_list **lst1, t_list **lst2)
 {
 	t_list	*current;
 	t_list	*next_node;
 	int		lst_len;
 	int		comparison;
 
-	current = *lst;
-	comparison = 1;
-	lst_len = ft_lstsize(*lst);
-	while (current->next_number != NULL)
+	current = *lst1;
+	comparison = 0;
+	lst_len = ft_lstsize(*lst1);
+	next_node = current->next_number;
+	while (current->next_number != NULL && current->number < next_node->number)
 	{
-		next_node = current->next_number;
-		if (current->number > next_node->number)
-			return (comparison);
 		comparison++;
 		current = current->next_number;
+		next_node = current->next_number;
 	}
 	if (comparison != 1 && comparison != (lst_len - 1))
-		return (1);
+	{
+		while (comparison > 0)
+		{
+			px(lst1, lst2);
+			write(1, "pb\n", 2);
+			comparison--;
+		}
+	}
 	return (0);
 }
 
@@ -61,41 +65,51 @@ int	perform_sx(t_list **lst)
 	if (first->stack_letter == 'a')
 	{
 		if (first->number > second->number)
+		{
+			sx(lst);
+			write(1, "sa\n", 2);
 			return (1);
+		}
 	}
 	else
 	{
 		if (first->number < second->number)
+		{
+			sx(lst);
+			write(1, "sb\n", 2);
 			return (1);
+		}
 	}
 	return (0);
 }
 
 int	perform_rx(t_list **lst)
 {
-	t_list	*first;
+	int		first;
+	char	stack_letter;
 	t_list	*current;
 
-	first = *lst;
-	current = first->next_number;
-	if (first->stack_letter == 'a')
+	if (!lst || !*lst)
+		return (0);
+	first = (*lst)->number;
+	stack_letter = (*lst)->stack_letter;
+	current = (*lst)->next_number;
+	while (current)
 	{
-		while (current->next_number != NULL)
+		if (stack_letter == 'a')
 		{
-			if (first->number < current->number)
+			if (first < current->number)
 				return (0);
-			current = current->next_number;
+			printf("first: %d, current: %d\n", first, current->number);
 		}
-	}
-	else
-	{
-		while (current->next_number != NULL)
+		else
 		{
-			if (first->number > current->number)
+			if (first > current->number)
 				return (0);
-			current = current->next_number;
 		}
+		current = current->next_number;
 	}
+	rx(lst);
 	return (1);
 }
 
@@ -104,25 +118,24 @@ int	perform_rrx(t_list **lst)
 	t_list	*last;
 	t_list	*current;
 
+	if (!lst || !*lst)
+		return (0);
 	current = *lst;
 	last = ft_lstlast(*lst);
-	if (last->stack_letter == 'a')
+	while (current)
 	{
-		while (current->next_number != last)
+		if (last->stack_letter == 'a')
 		{
 			if (last->number > current->number)
 				return (0);
-			current = current->next_number;
 		}
-	}
-	else
-	{
-		while (current->next_number != last)
+		else
 		{
 			if (last->number < current->number)
 				return (0);
 			current = current->next_number;
 		}
 	}
+	rrx(lst);
 	return (1);
 }
