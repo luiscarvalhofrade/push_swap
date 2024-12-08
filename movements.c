@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	swap_positions_top(t_list **lst)
+void	sx(t_list **lst)
 {
 	t_list	*tmp_head;
 	t_list	*tmp_swap;
@@ -31,12 +31,12 @@ void	swap_positions_top(t_list **lst)
 void	ss(t_list **lst1, t_list **lst2)
 {
 	if (!lst1)
-		swap_positions_top(lst1);
+		sx(lst1);
 	if (!lst2)
-		swap_positions_top(lst2);
+		sx(lst2);
 }
 
-void	push_to_other_stack(t_list **lst1, t_list **lst2)
+void	px(t_list **lst1, t_list **lst2)
 {
 	t_list	*new_top_lst1;
 	t_list	*new_top_lst2;
@@ -54,7 +54,7 @@ void	push_to_other_stack(t_list **lst1, t_list **lst2)
 	*lst1 = new_top_lst1;
 }
 
-void	rotate_first_to_bottom(t_list **lst)
+void	rx(t_list **lst)
 {
 	t_list	*tmp_head;
 	t_list	*new_top;
@@ -73,12 +73,12 @@ void	rotate_first_to_bottom(t_list **lst)
 void	rr(t_list **lst1, t_list **lst2)
 {
 	if (!lst1)
-		rotate_first_to_bottom(lst1);
+		rx(lst1);
 	if (!lst2)
-		rotate_first_to_bottom(lst2);
+		rx(lst2);
 }
 
-void	rotate_last_to_top(t_list **lst)
+void	rrx(t_list **lst)
 {
 	t_list	*new_top;
 	t_list	*new_second;
@@ -99,7 +99,7 @@ void	rotate_last_to_top(t_list **lst)
 void	rrr(t_list **lst1, t_list **lst2)
 {
 	if (!lst1)
-		rotate_last_to_top(lst1);
+		rrx(lst1);
 	if (!lst2)
-		rotate_last_to_top(lst2);
+		rrx(lst2);
 }

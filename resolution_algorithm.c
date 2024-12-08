@@ -12,21 +12,13 @@
 
 #include "push_swap.h"
 
-int	stack_ascending_checker(t_list **lst)
+int	resolution_algorithm(t_list **lst)
 {
-	t_list	*current;
-	t_list	*next_node;
-
-	current = *lst;
-	while (current->next_number != NULL)
+	int	result;
+	while ((result = stack_ascending_checker(lst)) != 1)
 	{
-		next_node = current->next_number;
-		if (current->number > next_node->number)
-		{
-			printf("\ncurr:%d > next:%d\n", current->number, next_node->number);
-			return (0);
-		}
-		current = current->next_number;
+		perform_rx(lst);
+		perform_rrx(lst);
+		perform_sx(lst);
 	}
-	return (1);
 }
