@@ -40,6 +40,18 @@ void	movement_result(t_list *lst1, t_list *lst2)
 	printf("\n===============\n");
 }
 
+void	free_lst(t_list *head)
+{
+    t_list	*temp;
+
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next_number;
+        free(temp);
+    }
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*lsta;
@@ -53,5 +65,7 @@ int	main(int argc, char **argv)
 	if (!lsta || lsta == 0)
 		return (printf("Error\n"));
 	resolution_algorithm(&lsta, &lstb);
+	free_lst(lsta);
+	free_lst(lstb);
 	return (0);
 }

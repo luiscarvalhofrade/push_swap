@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		perform_pa(t_list **lst1, t_list **lst2)
+int	perform_pa(t_list **lst1, t_list **lst2)
 {
 	int		lst_len;
 
@@ -20,7 +20,6 @@ int		perform_pa(t_list **lst1, t_list **lst2)
 	while (lst_len > 0)
 	{
 		px(lst2, lst1);
-		write(1, "pa\n", 2);
 		lst_len--;
 	}
 	return (0);
@@ -48,7 +47,6 @@ int	perform_pb(t_list **lst1, t_list **lst2)
 		while (comparison > 0)
 		{
 			px(lst1, lst2);
-			write(1, "pb\n", 2);
 			comparison--;
 		}
 	}
@@ -67,7 +65,6 @@ int	perform_sx(t_list **lst)
 		if (first->number > second->number)
 		{
 			sx(lst);
-			write(1, "sa\n", 2);
 			return (1);
 		}
 	}
@@ -76,7 +73,6 @@ int	perform_sx(t_list **lst)
 		if (first->number < second->number)
 		{
 			sx(lst);
-			write(1, "sb\n", 2);
 			return (1);
 		}
 	}
@@ -100,7 +96,6 @@ int	perform_rx(t_list **lst)
 		{
 			if (first < current->number)
 				return (0);
-			printf("first: %d, current: %d\n", first, current->number);
 		}
 		else
 		{
@@ -133,8 +128,8 @@ int	perform_rrx(t_list **lst)
 		{
 			if (last->number < current->number)
 				return (0);
-			current = current->next_number;
 		}
+		current = current->next_number;
 	}
 	rrx(lst);
 	return (1);

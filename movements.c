@@ -26,16 +26,22 @@ void	sx(t_list **lst)
 	tmp_head->next_number = tmp_third;
 	*lst = tmp_swap;
 	tmp_swap->next_number = tmp_head;
+	if (tmp_swap->stack_letter == 'a')
+		write(1, "sa\n", 3);
+	else
+		write(1, "sb\n", 3);
 }
 
 void	px(t_list **lst1, t_list **lst2)
 {
 	t_list	*new_top_lst1;
 	t_list	*new_top_lst2;
+	char	stack_letter;
 
 	if (ft_lstsize(*lst1) == 0)
 		return ;
 	new_top_lst2 = *lst1;
+	stack_letter = (new_top_lst2)->stack_letter;
 	new_top_lst1 = new_top_lst2->next_number;
 	if (new_top_lst2->stack_letter == 'a')
 		new_top_lst2->stack_letter = 'b';
@@ -44,6 +50,10 @@ void	px(t_list **lst1, t_list **lst2)
 	new_top_lst2->next_number = NULL;
 	ft_lstadd_front(lst2, new_top_lst2);
 	*lst1 = new_top_lst1;
+	if (stack_letter == 'a')
+		write(1, "pb\n", 3);
+	else
+		write(1, "pa\n", 3);
 }
 
 void	rx(t_list **lst)
