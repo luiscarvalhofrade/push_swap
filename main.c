@@ -40,14 +40,14 @@ void	movement_result(t_list *lst1, t_list *lst2)
 	printf("\n===============\n");
 }
 
-void	free_lst(t_list *head)
+void	free_lst(t_list *lst)
 {
     t_list	*temp;
 
-    while (head != NULL)
+    while (lst)
     {
-        temp = head;
-        head = head->next_number;
+        temp = lst;
+        lst = lst->next_number;
         free(temp);
     }
 }
@@ -60,10 +60,10 @@ int	main(int argc, char **argv)
 	lsta = NULL;
 	lstb = NULL;
 	if (argc < 3)
-		return (printf("Error\n"));
+		return (write(1, "Error\n", 6));
 	lsta = stack_builder(argc, argv);
 	if (!lsta || lsta == 0)
-		return (printf("Error\n"));
+		return (write(1, "Error\n", 6));
 	resolution_algorithm(&lsta, &lstb);
 	free_lst(lsta);
 	free_lst(lstb);
