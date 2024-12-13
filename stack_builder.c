@@ -12,10 +12,6 @@
 
 #include "push_swap.h"
 
-
-
-
-
 t_list	*stack_builder(int argc, char **argv)
 {
 	t_list	*new_node;
@@ -26,9 +22,12 @@ t_list	*stack_builder(int argc, char **argv)
 
 	lst = NULL;
 	i = 1;
+	final_argv = input_argv_validator(argc, argv);
 	if (argc == 2)
+	{
 		argc = ft_count_words(argv[1], ' ');
-	final_argv = argv_validator(argc, argv);
+		i = 0;
+	}
 	while (i < argc)
 	{
 		k = 0;
@@ -46,3 +45,27 @@ t_list	*stack_builder(int argc, char **argv)
 	}
 	return (lst);
 }
+
+// t_list	*stack_builder(int argc, char **argv)
+// {
+// 	t_list	*new_node;
+// 	t_list	*lst;
+// 	char	**final_argv;
+// 	int		final_argc;
+// 	int		i;
+
+// 	lst = NULL;
+// 	final_argv = input_argv_validator(argc, argv);
+// 	final_argc = input_argv_validator(argc);
+// 	while (i < final_argc)
+// 	{
+// 		new_node = input_type_validator(i, final_argv, final_argc);
+// 		new_node = ft_lstnew((atoi(argv[i])), 'a');
+// 		if (!new_node)
+// 			return (0);
+// 		ft_lstadd_back(&lst, new_node);
+// 		i++;
+// 	}
+
+
+// }

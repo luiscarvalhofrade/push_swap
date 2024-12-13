@@ -24,13 +24,35 @@ int	duplicates_validator(t_list **lst)
 	return (1);
 }
 
-char	**argv_validator(int argc, char **argv)
+char	**input_argv_validator(int argc, char **argv)
 {
 	char	**final_argv;
 
-	if (argc == 1)
+	if (argc == 2)
 		final_argv = ft_split(argv[1], ' ');
 	else
 		final_argv = argv;
 	return (final_argv);
 }
+
+// t_list	*input_type_validator(int i, char **argv, int argc)
+// {
+// 	int	k;
+
+// 	k = 0;
+// 	while (i < argc)
+// 	{
+// 		k = 0;
+// 		while (argv[i][k] != '\0')
+// 		{
+// 			if (ft_isdigit(argv[i][k]) != 1 || argv[i][k] == '-')
+// 				return (0);
+// 			k++;
+// 		}
+// 		new_node = ft_lstnew((atoi(argv[i])), 'a');
+// 		if (!new_node)
+// 			return (0);
+// 		ft_lstadd_back(&lst, new_node);
+// 		i++;
+// 	}
+// }

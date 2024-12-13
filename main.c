@@ -59,8 +59,6 @@ int	main(int argc, char **argv)
 
 	lsta = NULL;
 	lstb = NULL;
-	if (argc < 3)
-		return (write(1, "Error\n", 6));
 	lsta = stack_builder(argc, argv);
 	if (!lsta || lsta == 0)
 		return (write(1, "Error\n", 6));
