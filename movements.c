@@ -71,9 +71,9 @@ void	rx(t_list **lst)
 	tmp_head->next_number = NULL;
 	*lst = new_top;
 	if (new_top->stack_letter == 'a')
-		write(1, "ra\n", 2);
+		write(1, "ra\n", 3);
 	else
-		write(1, "rb\n", 2);
+		write(1, "rb\n", 3);
 }
 
 void	rrx(t_list **lst)

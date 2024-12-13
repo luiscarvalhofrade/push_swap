@@ -42,14 +42,14 @@ void	movement_result(t_list *lst1, t_list *lst2)
 
 void	free_lst(t_list *lst)
 {
-    t_list	*temp;
+	t_list	*temp;
 
-    while (lst)
-    {
-        temp = lst;
-        lst = lst->next_number;
-        free(temp);
-    }
+	while (lst)
+	{
+		temp = lst;
+		lst = lst->next_number;
+		free(temp);
+	}
 }
 
 int	main(int argc, char **argv)

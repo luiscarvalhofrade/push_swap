@@ -12,6 +12,31 @@
 
 #include "push_swap.h"
 
+int	get_highest_bit(t_list **lst)
+{
+	int		current_bit;
+	int		num;
+	int		max_pos;
+	t_list	*current;
+
+	current = *lst;
+	max_pos = 0;
+	while (current)
+	{
+		num = (current)->number;
+		current_bit = 0;
+		while (num > 0)
+		{
+			num >>= 1;
+			current_bit++;
+		}
+		if (max_pos < current_bit)
+			max_pos = current_bit;
+		current = current->next_number;
+	}
+	return (max_pos);
+}
+
 int	stack_checker(t_list **lst)
 {
 	t_list	*current;
@@ -39,29 +64,29 @@ int	stack_checker(t_list **lst)
 	return (1);
 }
 
-int	resolution_algorithm(t_list **lst1, t_list **lst2)
+void	resolution_algorithm(t_list **lst1, t_list **lst2)
 {
-	int	result;
+	t_list	*current_node;
+	int		lst1_size;
+	int		pos;
+	int		max_pos;
 
-	result = stack_checker(lst1);
-	while (result != 1)
+	pos = 0;
+	lst1_size = ft_lstsize(*lst1);
+	max_pos = get_highest_bit(lst1);
+	while (pos < max_pos)
 	{
-		if (lst1)
+		while (lst1_size > 0)
 		{
-			perform_rrx(lst1);
-			perform_rx(lst1);
-			perform_sx(lst1);
+			current_node = *lst1;
+			if ((current_node)->number & (1 << pos))
+				rx(lst1);
+			else
+				px(lst1, lst2);
+			lst1_size--;
 		}
-		if (ft_lstsize(*lst2) > 1)
-		{
-			perform_rrx(lst2);
-			perform_rx(lst2);
-			perform_sx(lst2);
-		}
-		perform_pb(lst1, lst2);
-		movement_result(*lst1, *lst2);
-		result = stack_checker(lst1);
+		perform_pa(lst1, lst2);
+		lst1_size = ft_lstsize(*lst1);
+		pos++;
 	}
-	perform_pa(lst1, lst2);
-	return (0);
 }

@@ -24,8 +24,6 @@ typedef struct s_list
 	struct s_list	*next_number;
 }					t_list;
 
-t_list	*ft_lstnew(int number, char letter);
-
 void	ft_lstadd_back(t_list **lst, t_list *new_node);
 void	sx(t_list **lst);
 void	rx(t_list **lst);
@@ -36,16 +34,17 @@ void	ss(t_list **lst1, t_list **lst2);
 void	rr(t_list **lst1, t_list **lst2);
 void	rrr(t_list **lst1, t_list **lst2);
 void	movement_result(t_list *lst1, t_list *lst2);
+void	resolution_algorithm(t_list **lst1, t_list **lst2);
 
 int		perform_sx(t_list **lst);
 int		perform_rx(t_list **lst);
 int		perform_rrx(t_list **lst);
 int		perform_pb(t_list **lst1, t_list **lst2);
 int		perform_pa(t_list **lst1, t_list **lst2);
-int		resolution_algorithm(t_list **lst1, t_list **lst2);
 
 t_list	*ft_lstlast(t_list *lst);
 t_list	*stack_builder(int argc, char **argv);
+t_list	*ft_lstnew(int number, char letter);
 
 int		ft_isdigit(int c);
 int		ft_lstsize(t_list *lst);
