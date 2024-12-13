@@ -56,14 +56,14 @@ t_list	*input_item_validator(char **argv, int argc, int i, t_list **lst)
 		k = 0;
 		while (argv[i][k] != '\0')
 		{
-			if (ft_isdigit(argv[i][k]) != 1 || argv[i][k] == '-')
+			if (ft_nbr(argv[i]) != 1)
 				return (NULL);
 			k++;
 		}
-		new_node = ft_lstnew((atoi(argv[i])), 'a');
+		new_node = ft_lstnew((ft_atoi(argv[i])), 'a');
 		if (!new_node)
 		{
-			write(1, "Error\n", 9);
+			write(2, "Error\n", 6);
 			return (NULL);
 		}
 		ft_lstadd_back(lst, new_node);

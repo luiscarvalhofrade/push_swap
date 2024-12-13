@@ -61,8 +61,9 @@ int	main(int argc, char **argv)
 	lstb = NULL;
 	lsta = stack_builder(argc, argv);
 	if (!lsta || lsta == 0)
-		return (write(1, "Error\n", 6));
+		return (write(2, "Error\n", 6));
 	resolution_algorithm(&lsta, &lstb);
+	movement_result(lsta, lstb);
 	free_lst(lsta);
 	free_lst(lstb);
 	return (0);

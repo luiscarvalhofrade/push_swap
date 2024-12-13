@@ -42,10 +42,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new_node)
 	last->next_number = new_node;
 }
 
-int	ft_isdigit(int c)
+int	ft_nbr(char *nbr)
 {
-	if ('0' <= c && c <= '9')
-		return (1);
-	else
-		return (0);
+	if (*nbr == '-' || *nbr == '+')
+		nbr++;
+	while (('0' <= *nbr && *nbr <= '9') && *nbr)
+	{
+		if (!('0' <= *nbr && *nbr <= '9'))
+			return (0);
+		nbr++;
+	}
+	return (1);
 }
