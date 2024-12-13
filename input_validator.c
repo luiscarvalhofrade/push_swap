@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	duplicates_validator(t_list **lst)
+int	input_duplicates_validator(t_list **lst)
 {
 	int		current_number;
 	t_list	*current_node;
@@ -35,24 +35,39 @@ char	**input_argv_validator(int argc, char **argv)
 	return (final_argv);
 }
 
-// t_list	*input_type_validator(int i, char **argv, int argc)
-// {
-// 	int	k;
+int	input_argc_validator(int argc, char **argv)
+{
+	int	final_argc;
 
-// 	k = 0;
-// 	while (i < argc)
-// 	{
-// 		k = 0;
-// 		while (argv[i][k] != '\0')
-// 		{
-// 			if (ft_isdigit(argv[i][k]) != 1 || argv[i][k] == '-')
-// 				return (0);
-// 			k++;
-// 		}
-// 		new_node = ft_lstnew((atoi(argv[i])), 'a');
-// 		if (!new_node)
-// 			return (0);
-// 		ft_lstadd_back(&lst, new_node);
-// 		i++;
-// 	}
-// }
+	if (argc == 2)
+		final_argc = ft_count_items(argv[1], ' ');
+	else
+		final_argc = argc;
+	return (final_argc);
+}
+
+t_list	*input_item_validator(char **argv, int argc, int i, t_list **lst)
+{
+	t_list	*new_node;
+	int		k;
+
+	while (i < argc)
+	{
+		k = 0;
+		while (argv[i][k] != '\0')
+		{
+			if (ft_isdigit(argv[i][k]) != 1 || argv[i][k] == '-')
+				return (NULL);
+			k++;
+		}
+		new_node = ft_lstnew((atoi(argv[i])), 'a');
+		if (!new_node)
+		{
+			write(1, "Error\n", 9);
+			return (NULL);
+		}
+		ft_lstadd_back(lst, new_node);
+		i++;
+	}
+	return (*lst);
+}

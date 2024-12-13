@@ -14,58 +14,23 @@
 
 t_list	*stack_builder(int argc, char **argv)
 {
-	t_list	*new_node;
 	t_list	*lst;
 	char	**final_argv;
+	int		final_argc;
 	int		i;
-	int		k;
 
 	lst = NULL;
-	i = 1;
 	final_argv = input_argv_validator(argc, argv);
+	if (!final_argv)
+		return (NULL);
+	final_argc = input_argc_validator(argc, argv);
 	if (argc == 2)
-	{
-		argc = ft_count_words(argv[1], ' ');
 		i = 0;
-	}
-	while (i < argc)
-	{
-		k = 0;
-		while (final_argv[i][k] != '\0')
-		{
-			if (ft_isdigit(final_argv[i][k]) != 1 || final_argv[i][k] == '-')
-				return (0);
-			k++;
-		}
-		new_node = ft_lstnew((atoi(final_argv[i])), 'a');
-		if (!new_node)
-			return (0);
-		ft_lstadd_back(&lst, new_node);
-		i++;
-	}
+	else if (argc >= 3)
+		i = 1;
+	else
+		return (NULL);
+	if (!input_item_validator(final_argv, final_argc, i, &lst))
+		return (NULL);
 	return (lst);
 }
-
-// t_list	*stack_builder(int argc, char **argv)
-// {
-// 	t_list	*new_node;
-// 	t_list	*lst;
-// 	char	**final_argv;
-// 	int		final_argc;
-// 	int		i;
-
-// 	lst = NULL;
-// 	final_argv = input_argv_validator(argc, argv);
-// 	final_argc = input_argv_validator(argc);
-// 	while (i < final_argc)
-// 	{
-// 		new_node = input_type_validator(i, final_argv, final_argc);
-// 		new_node = ft_lstnew((atoi(argv[i])), 'a');
-// 		if (!new_node)
-// 			return (0);
-// 		ft_lstadd_back(&lst, new_node);
-// 		i++;
-// 	}
-
-
-// }

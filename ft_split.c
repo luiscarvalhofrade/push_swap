@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	ft_count_words(const char *s, char c)
+int	ft_count_items(const char *s, char c)
 {
 	int	count;
 
@@ -77,7 +77,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	result = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	result = malloc((ft_count_items(s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	while (*s)
