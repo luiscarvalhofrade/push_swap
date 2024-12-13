@@ -6,7 +6,7 @@ CFLAGS = -Wall -Werror -Wextra -I.
 
 # source code
 SRCS = main.c stack_builder.c stack_builder_utils.c movements.c movements_utils.c \
-	resolution_algorithm.c resolution_algorithm_utils.c
+	resolution_algorithm.c resolution_algorithm_utils.c ft_split.c input_validator.c
 
 # objects
 OBJECTS = $(SRCS:.c=.o)
