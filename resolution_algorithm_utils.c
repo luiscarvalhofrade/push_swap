@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   resolution_algorithm_utils.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:27:11 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/12/06 13:27:12 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	perform_pa(t_list **lst1, t_list **lst2)
+int	perform_pa(t_elem **lst1, t_elem **lst2)
 {
 	int		lst_len;
 
@@ -25,10 +25,10 @@ int	perform_pa(t_list **lst1, t_list **lst2)
 	return (0);
 }
 
-int	perform_pb(t_list **lst1, t_list **lst2)
+int	perform_pb(t_elem **lst1, t_elem **lst2)
 {
-	t_list	*current;
-	t_list	*next_node;
+	t_elem	*current;
+	t_elem	*next_node;
 	int		lst_len;
 	int		comparison;
 
@@ -53,10 +53,10 @@ int	perform_pb(t_list **lst1, t_list **lst2)
 	return (0);
 }
 
-int	perform_sx(t_list **lst)
+int	perform_sx(t_elem **lst)
 {
-	t_list	*first;
-	t_list	*second;
+	t_elem	*first;
+	t_elem	*second;
 
 	first = *lst;
 	second = first->next_number;
@@ -79,11 +79,11 @@ int	perform_sx(t_list **lst)
 	return (0);
 }
 
-int	perform_rx(t_list **lst)
+int	perform_rx(t_elem **lst)
 {
 	int		first;
 	char	stack_letter;
-	t_list	*current;
+	t_elem	*current;
 
 	if (!lst || !*lst)
 		return (0);
@@ -108,10 +108,10 @@ int	perform_rx(t_list **lst)
 	return (1);
 }
 
-int	perform_rrx(t_list **lst)
+int	perform_rrx(t_elem **lst)
 {
-	t_list	*last;
-	t_list	*current;
+	t_elem	*last;
+	t_elem	*current;
 
 	if (!lst || !*lst)
 		return (0);

@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:11:36 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/12/05 20:11:37 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sx(t_list **lst)
+void	sx(t_elem **lst)
 {
-	t_list	*tmp_head;
-	t_list	*tmp_swap;
-	t_list	*tmp_third;
+	t_elem	*tmp_head;
+	t_elem	*tmp_swap;
+	t_elem	*tmp_third;
 
 	if (ft_lstsize(*lst) < 2)
 		return ;
@@ -32,10 +32,10 @@ void	sx(t_list **lst)
 		write(1, "sb\n", 3);
 }
 
-void	px(t_list **lst1, t_list **lst2)
+void	px(t_elem **lst1, t_elem **lst2)
 {
-	t_list	*new_top_lst1;
-	t_list	*new_top_lst2;
+	t_elem	*new_top_lst1;
+	t_elem	*new_top_lst2;
 	char	stack_letter;
 
 	if (ft_lstsize(*lst1) == 0)
@@ -56,11 +56,11 @@ void	px(t_list **lst1, t_list **lst2)
 		write(1, "pa\n", 3);
 }
 
-void	rx(t_list **lst)
+void	rx(t_elem **lst)
 {
-	t_list	*tmp_head;
-	t_list	*new_top;
-	t_list	*tmp_last;
+	t_elem	*tmp_head;
+	t_elem	*new_top;
+	t_elem	*tmp_last;
 
 	if (ft_lstsize(*lst) < 2)
 		return ;
@@ -76,11 +76,11 @@ void	rx(t_list **lst)
 		write(1, "rb\n", 3);
 }
 
-void	rrx(t_list **lst)
+void	rrx(t_elem **lst)
 {
-	t_list	*new_top;
-	t_list	*new_second;
-	t_list	*new_last;
+	t_elem	*new_top;
+	t_elem	*new_second;
+	t_elem	*new_last;
 
 	if (ft_lstsize(*lst) < 2)
 		return ;

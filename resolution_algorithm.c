@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   resolution_algorithm.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:27:03 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/12/06 13:27:04 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_highest_bit(t_list **lst)
+int	get_highest_bit(t_elem **lst)
 {
 	int		current_bit;
 	int		num;
 	int		max_pos;
-	t_list	*current;
+	t_elem	*current;
 
 	current = *lst;
 	max_pos = 0;
@@ -37,10 +37,10 @@ int	get_highest_bit(t_list **lst)
 	return (max_pos);
 }
 
-int	stack_checker(t_list **lst)
+int	stack_checker(t_elem **lst)
 {
-	t_list	*current;
-	t_list	*next_node;
+	t_elem	*current;
+	t_elem	*next_node;
 	char	stack_letter;
 
 	current = *lst;
@@ -64,9 +64,9 @@ int	stack_checker(t_list **lst)
 	return (1);
 }
 
-void	resolution_algorithm(t_list **lst1, t_list **lst2)
+void	resolution_algorithm(t_elem **lst1, t_elem **lst2)
 {
-	t_list	*current_node;
+	t_elem	*current_node;
 	int		lst1_size;
 	int		pos;
 	int		max_pos;

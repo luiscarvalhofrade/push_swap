@@ -2,10 +2,11 @@
 CC = cc
 
 # compilation flags
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS = -Wall -Werror -Wextra -g -I.
 
 # source code
 SRCS = 	main.c \
+		input_utils.c \
 		input_validator.c \
 		stack_builder.c \
 		stack_builder_utils.c \
@@ -30,6 +31,9 @@ $(NAME): $(OBJECTS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+leakfull:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME} 1 2 3 4
 
 clean:
 	@rm -rf $(OBJECTS)

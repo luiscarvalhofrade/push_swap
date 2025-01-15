@@ -3,83 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   input_validator.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:04:14 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/12/17 11:04:16 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	input_duplicates_validator(t_list **lst)
-{
-	int		current_number;
-	t_list	*current_node;
-	t_list	*iteration_node;
+// int	input_duplicates_validator(t_elem **lst)
+// {
+// 	int		current_number;
+// 	t_elem	*current_node;
+// 	t_elem	*iteration_node;
 
-	if (!lst || !*lst)
-		return (0);
-	current_node = *lst;
-	while (current_node)
+// 	if (!lst || !*lst)
+// 		return (0);
+// 	current_node = *lst;
+// 	while (current_node)
+// 	{
+// 		current_number = (current_node)->number;
+// 		iteration_node = (current_node)->next_number;
+// 		while (iteration_node->next_number != NULL)
+// 		{
+// 			if (current_number == iteration_node->number)
+// 				return (0);
+// 			iteration_node = iteration_node->next_number;
+// 		}
+// 		current_node = current_node->next_number;
+// 	}
+// 	return (1);
+// }
+
+int	ft_nbr(char *nbr)
+{
+	if (*nbr == '-' || *nbr == '+')
+		nbr++;
+	while (*nbr)
 	{
-		current_number = (current_node)->number;
-		iteration_node = (current_node)->next_number;
-		while (iteration_node->next_number != NULL)
-		{
-			if (current_number == iteration_node->number)
-				return (0);
-			iteration_node = iteration_node->next_number;
-		}
-		current_node = current_node->next_number;
+		if (!(*nbr >= '0' && *nbr <= '9'))	
+			return (0);
+		nbr++;
 	}
 	return (1);
 }
 
-char	**input_argv_validator(int argc, char **argv)
+int	input_item_validator(char **argv, int argc, int i)
 {
-	char	**final_argv;
-
-	if (argc == 2)
-		final_argv = ft_split(argv[1], ' ');
-	else
-		final_argv = argv;
-	return (final_argv);
-}
-
-int	input_argc_validator(int argc, char **argv)
-{
-	int	final_argc;
-
-	if (argc == 2)
-		final_argc = ft_count_items(argv[1], ' ');
-	else
-		final_argc = argc;
-	return (final_argc);
-}
-
-t_list	*input_item_validator(char **argv, int argc, int i, t_list **lst)
-{
-	t_list	*new_node;
-	int		k;
-
 	while (i < argc)
 	{
-		k = 0;
-		while (argv[i][k] != '\0')
-		{
-			if (ft_nbr(argv[i]) != 1)
-				return (NULL);
-			k++;
-		}
-		new_node = ft_lstnew((ft_atoi(argv[i])), 'a');
-		if (!new_node)
-		{
-			write(2, "Error\n", 6);
-			return (NULL);
-		}
-		ft_lstadd_back(lst, new_node);
+		if (ft_nbr(argv[i]) == 0)
+			return (0);
 		i++;
 	}
-	return (*lst);
+	return (1);
+}
+
+int	input_validator(int argc, char **argv)
+{
+	char	**final_argv;
+	int		final_argc;
+	int		i;
+
+	final_argv = input_argv_validator(argc, argv);
+	if (!final_argv)
+		return (0);
+	final_argc = input_argc_validator(argc, argv);
+	if (argc == 2)
+		i = 0;
+	else if (argc >= 3)
+		i = 1;
+	else
+		return (0);
+	if (input_item_validator(final_argv, final_argc, i) == 0)
+		return (0);
+	return (1);
 }

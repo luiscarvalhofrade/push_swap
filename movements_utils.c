@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   movements_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:11:45 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/12/05 20:11:46 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_elem	*ft_lstlast(t_elem *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -21,9 +21,9 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_elem *lst)
 {
-	t_list	*current;
+	t_elem	*current;
 	int		count;
 
 	current = lst;
@@ -36,7 +36,7 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new_node)
+void	ft_lstadd_front(t_elem **lst, t_elem *new_node)
 {
 	if (lst)
 	{

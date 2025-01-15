@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   stack_builder_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:05:03 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/12/05 20:05:04 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int number, char letter)
+t_elem	*ft_lstnew(int number, char letter)
 {
-	t_list	*new_lst;
+	t_elem	*new_lst;
 
-	new_lst = malloc(sizeof(t_list));
+	new_lst = malloc(sizeof(t_elem));
 	if (!new_lst)
 		return (0);
 	new_lst->number = number;
@@ -25,9 +25,9 @@ t_list	*ft_lstnew(int number, char letter)
 	return (new_lst);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new_node)
+void	ft_lstadd_back(t_elem **lst, t_elem *new_node)
 {
-	t_list	*last;
+	t_elem	*last;
 
 	if (!lst || !new_node)
 		return ;
@@ -40,17 +40,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new_node)
 	while (last->next_number != NULL)
 		last = last->next_number;
 	last->next_number = new_node;
-}
-
-int	ft_nbr(char *nbr)
-{
-	if (*nbr == '-' || *nbr == '+')
-		nbr++;
-	while (('0' <= *nbr && *nbr <= '9') && *nbr)
-	{
-		if (!('0' <= *nbr && *nbr <= '9'))
-			return (0);
-		nbr++;
-	}
-	return (1);
 }
