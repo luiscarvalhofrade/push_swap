@@ -5,9 +5,16 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -I.
 
 # source code
-SRCS = main.c stack_builder.c stack_builder_utils.c movements.c movements_utils.c \
-	resolution_algorithm.c resolution_algorithm_utils.c ft_split.c input_validator.c \
-	ft_atoi.c
+SRCS = 	main.c \
+		input_validator.c \
+		stack_builder.c \
+		stack_builder_utils.c \
+		movements.c \
+		movements_utils.c \
+		resolution_algorithm.c \
+		resolution_algorithm_utils.c \
+		utils/ft_split.c \
+		utils/ft_atoi.c
 
 # objects
 OBJECTS = $(SRCS:.c=.o)
