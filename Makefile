@@ -13,6 +13,7 @@ SRCS = 	main.c \
 		movements.c \
 		resolution_algorithm.c \
 		resolution_algorithm_utils.c \
+		index_definer_algo.c \
 		utils/ft_split.c \
 		utils/ft_atoi.c
 

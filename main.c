@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:56:44 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:53:48 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,22 @@
 
 void	movement_result(t_elem *lst1, t_elem *lst2)
 {
-	int		i;
-	int		j;
 	t_elem	*current;
 	t_elem	*currentb;
 
 	current = lst1;
 	printf("\n stack a\n\n");
-	i = 0;
 	while (current)
 	{
-		printf("[%c]no[%d]:%d\n", current->stack_letter, i, current->number);
+		printf("[%c]no[%d]:%d, pos:%d\n", current->stack_letter, current->index, current->number, current->position);
 		current = current->next_number;
-		i++;
 	}
 	printf("\n stack b\n\n");
-	j = 0;
 	currentb = lst2;
 	while (currentb)
 	{
-		printf("[%c]no[%d]:%d\n", currentb->stack_letter, j, currentb->number);
+		printf("[%c]no[%d]:%d, pos:%d\n", current->stack_letter, current->index, current->number, current->position);
 		currentb = currentb->next_number;
-		j++;
 	}
 	printf("\n===============\n");
 }
@@ -72,6 +66,7 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (0);
 	}
+	movement_result(lsta, lstb);
 	resolution_algorithm(&lsta, &lstb);
 	movement_result(lsta, lstb);
 	free_lst(lsta);
