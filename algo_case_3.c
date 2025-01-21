@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:23 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/21 18:23:39 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:32:34 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,11 @@ void	ra_or_rra(t_elem **lst)
 	head = *lst;
 	lst_size = ft_lstsize(*lst);
 	i = head->index;
-	printf("index head: %d", i);
+	printf("index head: %d\n", i);
 	while (i > 1)
 	{
 		rx(lst);
+		printf("i: %d\n", i);
 		i--;
 	}
 }
@@ -113,5 +114,6 @@ void	algo_case_3(t_elem **lst1, t_elem **lst2)
 		solve_elem(small_cost, lst1, lst2);
 		lst_size2 = ft_lstsize(*lst2);
 	}
+	movement_result(*lst1, *lst2);
 	ra_or_rra(lst1);
 }
