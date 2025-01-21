@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   position_definer_algo.c                            :+:      :+:    :+:   */
+/*   index_definer_algo.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:46:22 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/16 16:51:54 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:03:29 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void assign_index(t_elem *head, int current_index)
     if (min_node) 
 	{
         min_node->index = current_index;
-        min_node->position = current_index;
         assign_index(head, current_index + 1);
     }
 }

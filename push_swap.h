@@ -26,6 +26,7 @@ typedef struct s_elem
 	int				target_pos;
 	int				cost_a;
 	int				cost_b;
+	int				total_cost;
 	char			stack_letter;
 	struct s_elem	*next_number;
 }					t_elem;
@@ -42,6 +43,12 @@ void	rrr(t_elem **lst1, t_elem **lst2);
 void	movement_result(t_elem *lst1, t_elem *lst2);
 void	resolution_algorithm(t_elem **lst1, t_elem **lst2);
 void	assign_index(t_elem *head, int current_position);
+void	resolution(t_elem **lst1, t_elem **lst2);
+void	update_pos_n_target_pos(t_elem **lst1, t_elem **lst2);
+void	cost_cal(t_elem **lst1, t_elem **lst2);
+void	algo_case_1(t_elem **lst);
+void	algo_case_2(t_elem **lst);
+void	algo_case_3(t_elem **lst1, t_elem **lst2);
 
 int		input_duplicates_validator(t_elem **lst);
 int		input_argc_validator(int argc, char **argv);

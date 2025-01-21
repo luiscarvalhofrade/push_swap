@@ -11,11 +11,18 @@ SRCS = 	main.c \
 		linked_lst_utils.c \
 		stack_builder.c \
 		movements.c \
-		resolution_algorithm.c \
-		resolution_algorithm_utils.c \
+		movements_aggregated.c \
 		index_definer_algo.c \
 		utils/ft_split.c \
-		utils/ft_atoi.c
+		utils/ft_atoi.c \
+		update_pos_n_target_pos.c \
+		calculate_mov_costs.c \
+		algo_case_1.c \
+		algo_case_2.c \
+		algo_case_3.c \
+		algo.c \
+		# resolution_algorithm.c \
+		# resolution_algorithm_utils.c \
 
 # objects
 OBJECTS = $(SRCS:.c=.o)
