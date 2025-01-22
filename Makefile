@@ -38,7 +38,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 leakfull:
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME} "5 8 6 10 -8 -6 -10"
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME} 5 8 6 3 -8 -6 -10
 
 clean:
 	@rm -rf $(OBJECTS)
