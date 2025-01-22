@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:04:14 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 12:10:23 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:22:17 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int	input_validator(int argc, char **argv)
 		return (0);
 	if (input_item_validator(final_argv, final_argc, i) == 0)
 		return (0);
+	ft_free_split(final_argv, final_argc);
 	return (1);
 }

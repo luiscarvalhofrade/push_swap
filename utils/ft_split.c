@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:04:02 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/12/17 11:04:05 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:18:22 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static char	*ft_allocate_word(const char *s, char c)
 	return (word);
 }
 
-static char	**ft_free_split(char **result, int i)
+char	**ft_free_split(char **result, int i)
 {
 	while (i > 0)
 		free(result[--i]);

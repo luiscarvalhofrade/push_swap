@@ -72,5 +72,6 @@ int		stack_ascending_checker(t_elem **lst);
 
 char	**ft_split(char const *s, char c);
 char	**input_argv_validator(int argc, char **argv);
+char	**ft_free_split(char **result, int i);
 
 #endif

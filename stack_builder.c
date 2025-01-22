@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:44:14 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/21 16:35:38 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:22:08 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ t_elem	*stack_builder(int argc, char **argv)
 	else
 		return (NULL);
 	stack_a_builder(final_argv, final_argc, i, &lst);
+	ft_free_split(final_argv, final_argc);
 	return (lst);
 }
