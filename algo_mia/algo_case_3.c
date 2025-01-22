@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:23 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 12:13:34 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:26:56 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,12 @@ void	algo_case_3(t_elem **lst1, t_elem **lst2)
 	{
 		update_pos_n_target_pos(lst1, lst2);
 		cost_cal(lst1, lst2);
+		//movement_result(*lst1, *lst2);
 		small_cost = pick_smaller_cost(lst2);
 		solve_elem(small_cost, lst1, lst2);
+		//movement_result(*lst1, *lst2);
 		lst_size2 = ft_lstsize(*lst2);
 	}
+	//movement_result(*lst1, *lst2);
 	ra_or_rra(lst1);
 }

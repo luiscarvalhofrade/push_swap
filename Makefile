@@ -15,12 +15,14 @@ SRCS = 	main.c \
 		index_definer_algo.c \
 		utils/ft_split.c \
 		utils/ft_atoi.c \
-		update_pos_n_target_pos.c \
-		calculate_mov_costs.c \
-		algo_case_1.c \
-		algo_case_2.c \
-		algo_case_3.c \
-		algo.c \
+		algo_mia/update_pos_n_target_pos.c \
+		algo_mia/calculate_mov_costs.c \
+		algo_mia/algo_case_1.c \
+		algo_mia/algo_case_2.c \
+		algo_mia/algo_case_3.c \
+		algo_mia/algo_mia.c \
+		radix/algo_radix.c \
+		radix/algo_radix_utils.c \
 
 # objects
 OBJECTS = $(SRCS:.c=.o)
@@ -52,4 +54,4 @@ re: fclean all
 	@echo "Object files recreated."
 	@echo "Program recreated."
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re leakfull

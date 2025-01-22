@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:05:21 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/21 17:42:03 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:24:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	update_pos(t_elem **lst)
 	{
 		current->position = i;
 		i++;
+		//printf("index: %d, pos: %d\n", current->index, current->position);
 		current = current->next_number;
 	}
 }
@@ -51,6 +52,7 @@ void	update_target_pos(t_elem **lst1, t_elem **lst2)
 			current2->target_pos = best_match->position;
 		else
 			current2->target_pos = 0;
+		//printf("index: %d, target: %d\n", current2->index, current2->target_pos);
 		current2 = current2->next_number;
 	}
 }
@@ -58,10 +60,15 @@ void	update_target_pos(t_elem **lst1, t_elem **lst2)
 void	update_pos_n_target_pos(t_elem **lst1, t_elem **lst2)
 {
 	if (lst1)
+	{
+		//printf("\n====== pos lst1=======\n");
 		update_pos(lst1);
+	}
 	if (lst2)
 	{
+		//printf("\n====== pos lst2=======\n");
 		update_pos(lst2);
+		//printf("\n======target pos=======\n");
 		update_target_pos(lst1, lst2);
 	}
 }
