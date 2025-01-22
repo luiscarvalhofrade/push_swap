@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:17:05 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/21 17:45:00 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:58:14 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	cost_a_cal(t_elem **lst1, t_elem **lst2)
 			current->cost_a =  current->target_pos;
 		else if ((size_lst / 2) < current->target_pos)
 			current->cost_a = (-1) * (size_lst - current->target_pos);
-		printf("[%c]no[%d]target_pos:%d\n", current->stack_letter, current->index, current->target_pos);
 		current = current->next_number;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:11:36 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/15 16:51:31 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:03:16 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	rrx(t_elem **lst)
 	new_top->next_number = new_second;
 	*lst = new_top;
 	if (new_top->stack_letter == 'a')
-		write(1, "rra\n", 2);
+		write(1, "rra\n", 4);
 	else
-		write(1, "rrb\n", 2);
+		write(1, "rrb\n", 4);
 }
