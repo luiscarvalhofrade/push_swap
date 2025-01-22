@@ -21,8 +21,6 @@ SRCS = 	main.c \
 		algo_case_2.c \
 		algo_case_3.c \
 		algo.c \
-		# resolution_algorithm.c \
-		# resolution_algorithm_utils.c \
 
 # objects
 OBJECTS = $(SRCS:.c=.o)

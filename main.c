@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:56:44 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/21 16:36:55 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:09:44 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	main(int argc, char **argv)
 	}
 	update_pos_n_target_pos(&lsta, &lstb);
 	movement_result(lsta, lstb);
-	//resolution_algorithm(&lsta, &lstb);
 	resolution(&lsta, &lstb);
 	movement_result(lsta, lstb);
 	free_lst(lsta);

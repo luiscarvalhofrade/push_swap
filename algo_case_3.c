@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:23 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 12:05:47 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:13:34 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,21 @@ t_elem	*pick_smaller_cost(t_elem **lst)
 	t_elem	*min_elem;
 	int		min_cost;
 
-    current = *lst;
+	current = *lst;
 	min_elem = NULL;
-    min_cost = INT_MAX;
-    while (current)
-    {
-        if (current->total_cost < min_cost)
+	min_cost = INT_MAX;
+	while (current)
+	{
+		if (current->total_cost < min_cost)
 		{
-            min_cost = current->total_cost;
+			min_cost = current->total_cost;
 			min_elem = current;
 		}
-        current = current->next_number;
-    }
-    return (min_elem);
+		current = current->next_number;
+	}
+	return (min_elem);
 }
+
 void	solve_elem(t_elem *small_cost, t_elem **lst1, t_elem **lst2)
 {
 	int	cost_a;
