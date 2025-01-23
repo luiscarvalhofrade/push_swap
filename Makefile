@@ -15,12 +15,12 @@ SRCS = 	main.c \
 		index_definer_algo.c \
 		utils/ft_split.c \
 		utils/ft_atoi.c \
-		algo_mia/update_pos_n_target_pos.c \
-		algo_mia/calculate_mov_costs.c \
-		algo_mia/algo_case_1.c \
-		algo_mia/algo_case_2.c \
-		algo_mia/algo_case_3.c \
-		algo_mia/algo_mia.c \
+		mia/update_pos_n_target_pos.c \
+		mia/calculate_mov_costs.c \
+		mia/algo_case_1.c \
+		mia/algo_case_2.c \
+		mia/algo_case_3.c \
+		mia/algo_mia.c \
 		radix/algo_radix.c \
 		radix/algo_radix_utils.c \
 
