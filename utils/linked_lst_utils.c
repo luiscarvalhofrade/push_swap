@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:16:35 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 12:09:55 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:13:00 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_elem	*ft_lstlast(t_elem *lst)
 {

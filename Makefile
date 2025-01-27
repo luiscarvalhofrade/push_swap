@@ -6,23 +6,24 @@ CFLAGS = -Wall -Werror -Wextra -g -I.
 
 # source code
 SRCS = 	main.c \
-		input_utils.c \
-		input_validator.c \
-		linked_lst_utils.c \
-		stack_builder.c \
-		movements.c \
-		movements_aggregated.c \
-		index_definer_algo.c \
+		stack_builder/input_utils.c \
+		stack_builder/input_validator.c \
+		stack_builder/stack_builder.c \
+		stack_builder/index_definer_algo.c \
+		utils/linked_lst_utils.c \
 		utils/ft_split.c \
 		utils/ft_atoi.c \
-		mia/update_pos_n_target_pos.c \
-		mia/calculate_mov_costs.c \
-		mia/algo_case_1.c \
-		mia/algo_case_2.c \
-		mia/algo_case_3.c \
-		mia/algo_mia.c \
-		radix/algo_radix.c \
-		radix/algo_radix_utils.c \
+		movements/movements.c \
+		movements/movements_aggregated.c \
+		algorithms/proprietary/
+		algorithms/mia/update_pos_n_target_pos.c \
+		algorithms/mia/calculate_mov_costs.c \
+		algorithms/mia/algo_case_1.c \
+		algorithms/mia/algo_case_2.c \
+		algorithms/mia/algo_case_3.c \
+		algorithms/mia/algo_mia.c \
+		algorithms/radix/algo_radix.c \
+		algorithms/radix/algo_radix_utils.c \
 
 # objects
 OBJECTS = $(SRCS:.c=.o)

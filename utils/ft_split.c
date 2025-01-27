@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:04:02 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 12:18:22 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:13:44 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_count_items(const char *s, char c)
 {

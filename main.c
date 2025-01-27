@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:56:44 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 12:13:54 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:00:38 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	main(int argc, char **argv)
 
 	lsta = NULL;
 	lstb = NULL;
-
 	val_res = input_validator(argc, argv);
 	if (val_res == 0)
 	{
@@ -72,6 +71,7 @@ int	main(int argc, char **argv)
 	}
 	update_pos_n_target_pos(&lsta, &lstb);
 	mia_algo(&lsta, &lstb);
+	movement_result(lsta, lstb);
 	free_lst(lsta);
 	free_lst(lstb);
 	return (0);

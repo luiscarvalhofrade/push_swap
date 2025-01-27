@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:23 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 12:32:29 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:19:07 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_elem	*pick_smaller_cost(t_elem **lst)
 {
