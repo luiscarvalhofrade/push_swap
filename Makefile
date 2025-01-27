@@ -15,6 +15,11 @@ SRCS = 	main.c \
 		utils/ft_atoi.c \
 		movements/movements.c \
 		movements/movements_aggregated.c \
+		algorithms/proprietary/algo_case_1.c \
+		algorithms/proprietary/algo_case_2.c \
+		algorithms/proprietary/algo_case_3.c \
+		algorithms/proprietary/algo_proprietary.c \
+		algorithms/proprietary/
 		algorithms/proprietary/
 		algorithms/mia/update_pos_n_target_pos.c \
 		algorithms/mia/calculate_mov_costs.c \
