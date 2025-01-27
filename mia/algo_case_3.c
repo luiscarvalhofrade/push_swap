@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:23 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 12:16:32 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:32:29 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,26 @@ t_elem	*pick_smaller_cost(t_elem **lst)
 	return (min_elem);
 }
 
+void	perform_rx_or_rrx(int cost, t_elem **lst)
+{
+	if (cost < 0)
+	{
+		while (cost < 0)
+		{
+			rrx(lst);
+			cost++;
+		}
+	}
+	else
+	{
+		while (cost > 0)
+		{
+			rx(lst);
+			cost--;
+		}
+	}
+}
+
 void	solve_elem(t_elem *small_cost, t_elem **lst1, t_elem **lst2)
 {
 	int	cost_a;
@@ -52,30 +72,12 @@ void	solve_elem(t_elem *small_cost, t_elem **lst1, t_elem **lst2)
 		cost_a--;
 		cost_b--;
 	}
-	while (cost_b < 0)
-	{
-		rrx(lst2);
-		cost_b++;
-	}
-	while (cost_a < 0)
-	{
-		rrx(lst1);
-		cost_a++;
-	}
-	while (cost_b > 0)
-	{
-		rx(lst2);
-		cost_b--;
-	}
-	while (cost_a > 0)
-	{
-		rx(lst1);
-		cost_a--;
-	}
+	perform_rx_or_rrx(cost_b, lst2);
+	perform_rx_or_rrx(cost_a, lst1);
 	px(lst2, lst1);
 }
 
-void	ra_or_rra(t_elem **lst)
+void	perform_ra_or_rra(t_elem **lst)
 {
 	t_elem	*head;
 	int		i;
@@ -113,5 +115,5 @@ void	algo_case_3(t_elem **lst1, t_elem **lst2)
 		solve_elem(small_cost, lst1, lst2);
 		lst_size2 = ft_lstsize(*lst2);
 	}
-	ra_or_rra(lst1);
+	perform_ra_or_rra(lst1);
 }
