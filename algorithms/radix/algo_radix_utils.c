@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:21:57 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 15:25:24 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:12:39 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	perform_pa(t_elem **lst1, t_elem **lst2)
 {

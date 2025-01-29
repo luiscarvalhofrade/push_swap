@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:11:14 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 14:14:17 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:10:47 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void	mia_algo(t_elem **lst1, t_elem **lst2)
 {

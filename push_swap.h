@@ -23,11 +23,12 @@ typedef struct s_elem
 	int				number;
 	int				index;
 	int				position;
-	int				target_pos;
+	int				is_above_center;
 	int				cost_a;
 	int				cost_b;
 	int				total_cost;
 	char			stack_letter;
+	struct s_elem	*target_pos;
 	struct s_elem	*next_number;
 }					t_elem;
 

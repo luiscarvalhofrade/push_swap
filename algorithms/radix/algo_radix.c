@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:27:03 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 15:20:23 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:12:45 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	get_highest_bit(t_elem **lst)
 {
