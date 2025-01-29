@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:19:52 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/29 14:20:25 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:50:02 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ void	algo_case_2(t_elem **lst)
 	second = first->next_number;
 	if (first->index > second->index)
 		sx(lst);
-	return ;
 }

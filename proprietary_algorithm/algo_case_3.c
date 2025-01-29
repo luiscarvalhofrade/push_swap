@@ -6,11 +6,41 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:20:12 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/29 14:38:09 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:49:18 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	move_elems_to_b(t_elem **lst1, t_elem **lst2)
+{
+	int		lst_size;
+	t_elem	*bigger_node;
+	t_elem	*sec_big_node;
+	t_elem	*third_big_node;
+	t_elem	*current;
+
+	current = *lst1;
+	lst_size = ft_lstsize(*lst1);
+	bigger_node = get_biggest_node(lst1);		
+	sec_big_node = get_sec_biggest_node(lst1);
+	third_big_node = get_third_biggest_node(lst1);
+	while (lst_size > 3)
+	{
+		if (current == bigger_node || current == sec_big_node || \
+			current == third_big_node)
+		{
+			current = current->next_number;
+			rx(lst1);
+		}
+		else
+		{
+			current = current->next_number;
+			px(lst1, lst2);
+		}
+		lst_size = ft_lstsize(*lst1);
+	}
+}
 
 void	update_target_pos(t_elem **lst1, t_elem **lst2)
 {
@@ -19,6 +49,7 @@ void	update_target_pos(t_elem **lst1, t_elem **lst2)
 	t_elem	*best_match;
 
 	current2 = *lst2;
+	best_match = NULL;
 	while (current2)
 	{
 		current1 = *lst1;
@@ -37,46 +68,31 @@ void	update_target_pos(t_elem **lst1, t_elem **lst2)
 	}
 }
 
-void	move_elems_to_b(t_elem **lst1, t_elem **lst2)
-{
-	int		size_lst;
-	t_elem	*bigger_node;
-	t_elem	*sec_bigger_node;
-	t_elem	*smallest_node;
-	t_elem	*current;
-
-	current = *lst1;
-	size_lst = ft_lstsize(*lst1);
-	bigger_node = get_biggest_node(lst1);
-	sec_bigger_node = get_sec_biggest_node(lst1);
-	smallest_node = get_smallest_node(lst1);
-	while (size_lst > 3)
-	{
-		if (current == bigger_node || current == sec_bigger_node || \
-			current == smallest_node)
-			rx(lst1);
-		px(lst1, lst2);
-		current = current->next_number;
-	}
-}
-
 void	lower_cost_to_top(t_elem **lst)
 {
-	t_elem	*smallest_node;
-	t_elem	*current;
+	t_elem	*lower_cost_node;
+	int		lst_size;
+	int		pos;
 
-	current = *lst;
 	update_pos(lst);
-	smallest_node = get_smallest_node(lst);
-	if (smallest_node->is_above_center)
+	lower_cost_node = get_lower_cost_node(lst);
+	pos = lower_cost_node->position;
+	lst_size = ft_lstsize(*lst);
+	if (lower_cost_node->is_above_center == 1)
 	{
-		while (current->position != smallest_node->position)
+		while (pos != 0)
+		{
 			rx(lst);
+			pos--;
+		}
 	}
-	else if (!smallest_node->is_above_center)
+	else if (lower_cost_node->is_above_center == 0)
 	{
-		while (current->position != smallest_node->position)
+		while (pos != 0)
+		{
 			rrx(lst);
+			pos = pos - (lst_size + 1);
+		}
 	}
 }
 
@@ -85,9 +101,9 @@ void	perform_final_ra_or_rra(t_elem **lst)
 	t_elem	*smallest_node;
 
 	smallest_node = get_smallest_node(lst);	
-	if (smallest_node->is_above_center)
+	if (smallest_node->is_above_center == 1)
 		rx(lst);
-	else if (!(smallest_node->is_above_center))
+	else if (smallest_node->is_above_center == 0)
 		rrx(lst);
 }
 
@@ -95,22 +111,28 @@ void	algo_case_3(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*smallest_node;
 	t_elem	*head;
+	int		lst_size2;
 
 	move_elems_to_b(lst1, lst2);
 	if (check_ordered(*lst1) == 0)
 		algo_case_2(lst1);
-	while (lst2 != NULL)
+	lst_size2 = ft_lstsize(*lst2);
+	while (lst_size2 != 0)
 	{
 		update_pos(lst1);
 		update_pos(lst2);
 		update_target_pos(lst1, lst2);
-		cal_cost(lst2);
-		lower_cost_to_top(lst1);
+		printf("=== cost cal===\n");
+		cal_cost(lst1, lst2);
+		lower_cost_to_top(lst2);
 		px(lst2, lst1);
+		lst_size2 = ft_lstsize(*lst2);
 	}
 	update_pos(lst1);
 	head = *lst1;
 	smallest_node = get_smallest_node(lst1);
+	if (!head || !smallest_node)
+		return ;
 	while (head != smallest_node)
 		perform_final_ra_or_rra(lst1);
 }
