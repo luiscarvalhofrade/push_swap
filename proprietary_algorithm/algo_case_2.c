@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_proprietary.c                                 :+:      :+:    :+:   */
+/*   algo_case_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 15:06:03 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/29 14:29:22 by luide-ca         ###   ########.fr       */
+/*   Created: 2025/01/29 14:19:52 by luide-ca          #+#    #+#             */
+/*   Updated: 2025/01/29 14:20:25 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	proprietary_algo(t_elem **lst1, t_elem **lst2)
+void	algo_case_2(t_elem **lst)
 {
-	int	lst_size;
+	t_elem	*first;
+	t_elem	*second;
+	t_elem	*third;
 
-	lst_size = ft_lstsize(*lst1);
-	if (lst_size == 2)
-	{
-		algo_case_1(lst1);
-		return ;
-	}
-	else if (lst_size == 3)
-	{
-		algo_case_2(lst1);
-		return ;
-	}
-	else if (lst_size > 3)
-	{
-		algo_case_3(lst1, lst2);
-		return ;
-	}
+	first = *lst;
+	second = first->next_number;
+	third = second->next_number;
+	if (first->index > second->index && first->index > third->index)
+		rx(lst);
+	if (second->index > first->index && second->index > third->index)
+		rrx(lst);
+	first = *lst;
+	second = first->next_number;
+	if (first->index > second->index)
+		sx(lst);
 	return ;
 }

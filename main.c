@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:56:44 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 14:00:38 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:36:01 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	movement_result(t_elem *lst1, t_elem *lst2)
 	printf("\n stack a\n\n");
 	while (current)
 	{
-		printf("[%c]no[%d]:%d, pos:%d\n", current->stack_letter, current->index, current->number, current->position);
+		printf("[%c]no[%d]pos:%d\n", current->stack_letter, current->index, current->position);
 		current = current->next_number;
 	}
 	printf("\n stack b\n\n");
@@ -69,8 +69,8 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	update_pos_n_target_pos(&lsta, &lstb);
-	mia_algo(&lsta, &lstb);
+	//update_pos_n_target_pos(&lsta, &lstb);
+	proprietary_algo(&lsta, &lstb);
 	movement_result(lsta, lstb);
 	free_lst(lsta);
 	free_lst(lstb);

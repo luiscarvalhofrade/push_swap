@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:16:35 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/28 17:57:15 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/29 13:27:16 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ t_elem	*ft_lstnew(int number, char letter)
 	new_lst->stack_letter = letter;
 	new_lst->position = 0;
 	new_lst->is_above_center = 0;
+	new_lst->cost = 0;
 	new_lst->cost_a = 0;
 	new_lst->cost_b = 0;
 	new_lst->total_cost = 0;
