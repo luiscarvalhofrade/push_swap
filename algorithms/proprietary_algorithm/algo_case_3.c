@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:20:12 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/29 17:49:18 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:24:34 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,28 @@ void	lower_cost_to_top(t_elem **lst)
 void	perform_final_ra_or_rra(t_elem **lst)
 {
 	t_elem	*smallest_node;
+	int		pos;
+	int		lst_size;
 
-	smallest_node = get_smallest_node(lst);	
+	smallest_node = get_smallest_node(lst);
+	pos = smallest_node->position;
+	lst_size = ft_lstsize(*lst);
 	if (smallest_node->is_above_center == 1)
-		rx(lst);
+	{
+		while (pos != 0)
+		{
+			rx(lst);
+			pos--;
+		}
+	}
 	else if (smallest_node->is_above_center == 0)
-		rrx(lst);
+	{
+		while (pos != 0)
+		{
+			rrx(lst);
+			pos = pos - (lst_size + 1);
+		}
+	}
 }
 
 void	algo_case_3(t_elem **lst1, t_elem **lst2)

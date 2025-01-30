@@ -56,6 +56,7 @@ void	update_pos(t_elem **lst);
 void	cal_cost(t_elem **lst1, t_elem **lst2);
 void	update_target_pos(t_elem **lst1, t_elem **lst2);
 
+void	final_algo(t_elem **lst1, t_elem **lst2);
 
 void	proprietary_algo(t_elem **lst1, t_elem **lst2);
 int		get_match_node_cost(t_elem **lst1, t_elem **lst2);
@@ -91,4 +92,20 @@ char	**ft_split(char const *s, char c);
 char	**input_argv_validator(int argc, char **argv);
 char	**ft_free_split(char **result, int i);
 
+
+t_elem	*get_lower_cost_node(t_elem **lst);
+t_elem	*ft_init_b(t_elem **lst1, t_elem **lst2);
+
+int		ft_greater(int num1, int num2);
+
+void	ft_move_b(t_elem **lst1, t_elem **lst2, t_elem *lower_cost_node);
+void	ft_move_a(t_elem **lst1, t_elem **lst2, t_elem *lower_cost_node);
+void	perform_final_ra_or_rra(t_elem **lst);
+void	update_pos(t_elem **lst);
+void	ft_finish_rotation(t_elem **lst, t_elem *lower_cost, char c);
+void	move_elems_to_b(t_elem **lst1, t_elem **lst2);
+void	perform_rr(t_elem **lst1, t_elem **lst2, t_elem *lower_cost);
+void	perform_rrr(t_elem **lst1, t_elem **lst2, t_elem *lower_cost);
+void	cal_cost_a(t_elem **lst1, t_elem **lst2);
+void	cal_cost_b(t_elem **lst1, t_elem **lst2);
 #endif
