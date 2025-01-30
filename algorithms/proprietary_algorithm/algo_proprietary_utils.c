@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:32:57 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/29 17:08:50 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:10:12 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,6 @@ void	cal_cost(t_elem **lst1, t_elem **lst2)
 		else if (current2 == get_smallest_node(lst2))
 			cost += 1;
 		current2->cost = cost;
-		printf("tar_pos:%d ", current2->target_pos->position);
-		printf("cost[index:%d]:", current2->index);
-		printf("%d\n", current2->cost);
 		current2 = current2->next_number;
 	}
 }
