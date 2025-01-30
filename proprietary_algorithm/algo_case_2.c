@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_case_1.c                                      :+:      :+:    :+:   */
+/*   algo_case_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 15:27:59 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 15:28:23 by luide-ca         ###   ########.fr       */
+/*   Created: 2025/01/29 14:19:52 by luide-ca          #+#    #+#             */
+/*   Updated: 2025/01/29 15:50:02 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
-void	algo_case_1(t_elem **lst)
+void	algo_case_2(t_elem **lst)
 {
-	t_elem	*current;
-	t_elem	*next;
+	t_elem	*first;
+	t_elem	*second;
+	t_elem	*third;
 
-	current = *lst;
-	next = current->next_number;
-	if (current->index > next->index)
+	first = *lst;
+	second = first->next_number;
+	third = second->next_number;
+	if (first->index > second->index && first->index > third->index)
+		rx(lst);
+	if (second->index > first->index && second->index > third->index)
+		rrx(lst);
+	first = *lst;
+	second = first->next_number;
+	if (first->index > second->index)
 		sx(lst);
-	return ;
 }

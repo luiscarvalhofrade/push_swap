@@ -15,20 +15,20 @@ SRCS = 	main.c \
 		utils/ft_atoi.c \
 		movements/movements.c \
 		movements/movements_aggregated.c \
-		algorithms/proprietary/algo_case_1.c \
-		algorithms/proprietary/algo_case_2.c \
-		algorithms/proprietary/algo_case_3.c \
-		algorithms/proprietary/algo_proprietary.c \
-		algorithms/proprietary/
-		algorithms/proprietary/
-		algorithms/mia/update_pos_n_target_pos.c \
-		algorithms/mia/calculate_mov_costs.c \
-		algorithms/mia/algo_case_1.c \
-		algorithms/mia/algo_case_2.c \
-		algorithms/mia/algo_case_3.c \
-		algorithms/mia/algo_mia.c \
-		algorithms/radix/algo_radix.c \
-		algorithms/radix/algo_radix_utils.c \
+		proprietary_algorithm/algo_case_1.c \
+		proprietary_algorithm/algo_case_2.c \
+		proprietary_algorithm/algo_case_3.c \
+		proprietary_algorithm/algo_proprietary.c \
+		proprietary_algorithm/algo_proprietary_utils.c \
+		proprietary_algorithm/handle_nodes.c \
+		# algorithms/mia/update_pos_n_target_pos.c \
+		# algorithms/mia/calculate_mov_costs.c \
+		# algorithms/mia/algo_case_1.c \
+		# algorithms/mia/algo_case_2.c \
+		# algorithms/mia/algo_case_3.c \
+		# algorithms/mia/algo_mia.c \
+		# algorithms/radix/algo_radix.c \
+		# algorithms/radix/algo_radix_utils.c \
 
 # objects
 OBJECTS = $(SRCS:.c=.o)

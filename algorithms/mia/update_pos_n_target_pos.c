@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:05:21 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 14:14:07 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:11:20 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void	update_pos(t_elem **lst)
 {

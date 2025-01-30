@@ -6,11 +6,11 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:20 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/27 14:14:28 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:11:03 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void	algo_case_2(t_elem **lst)
 {

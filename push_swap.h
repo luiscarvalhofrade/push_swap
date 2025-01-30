@@ -23,11 +23,13 @@ typedef struct s_elem
 	int				number;
 	int				index;
 	int				position;
-	int				target_pos;
+	int				is_above_center;
+	int				cost;
 	int				cost_a;
 	int				cost_b;
 	int				total_cost;
 	char			stack_letter;
+	struct s_elem	*target_pos;
 	struct s_elem	*next_number;
 }					t_elem;
 
@@ -50,6 +52,15 @@ void	algo_case_1(t_elem **lst);
 void	algo_case_2(t_elem **lst);
 void	algo_case_3(t_elem **lst1, t_elem **lst2);
 
+void	update_pos(t_elem **lst);
+void	cal_cost(t_elem **lst1, t_elem **lst2);
+void	update_target_pos(t_elem **lst1, t_elem **lst2);
+
+
+void	proprietary_algo(t_elem **lst1, t_elem **lst2);
+int		get_match_node_cost(t_elem **lst1, t_elem **lst2);
+int		check_ordered(t_elem *lst);
+
 int		input_duplicates_validator(t_elem **lst);
 int		input_argc_validator(int argc, char **argv);
 int		ft_count_items(const char *s, char c);
@@ -65,6 +76,12 @@ int		input_validator(int argc, char **argv);
 t_elem	*ft_lstlast(t_elem *lst);
 t_elem	*stack_builder(int argc, char **argv);
 t_elem	*ft_lstnew(int number, char letter);
+
+t_elem	*get_biggest_node(t_elem **lst);
+t_elem	*get_sec_biggest_node(t_elem **lst);
+t_elem	*get_third_biggest_node(t_elem **lst);
+t_elem	*get_smallest_node(t_elem **lst);
+t_elem	*get_lower_cost_node(t_elem **lst);
 
 int		ft_nbr(char *nbr);
 int		ft_lstsize(t_elem *lst);
