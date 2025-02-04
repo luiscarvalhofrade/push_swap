@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:23:49 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/30 17:15:13 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:14:27 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	algo_case_3(t_elem **lst1, t_elem **lst2)
 	while (lst_size2 != 0)
 	{
 		lower_cost_node = ft_init_b(lst1, lst2);
-		ft_move_a(lst1, lst2, lower_cost_node);
+		ft_move_b(lst1, lst2, lower_cost_node);
 		lst_size2 = ft_lstsize(*lst2);	
 	}
 	update_pos(lst1);

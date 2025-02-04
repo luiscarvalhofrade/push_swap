@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:30:28 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/30 17:19:35 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:11:32 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,7 @@ t_elem	*get_lower_cost_node(t_elem **lst)
 
 void	ft_finish_rotation(t_elem **lst, t_elem *lower_cost, char c)
 {
-	t_elem	*current;
-
-	current = *lst;
-	while (current != lower_cost)
+	while (*lst != lower_cost)
 	{
 		if (c == 'a')
 		{
@@ -78,7 +75,6 @@ void	ft_finish_rotation(t_elem **lst, t_elem *lower_cost, char c)
 				rrx(lst);
 		}
 	}
-	current = current->next_number;
 }
 
 int	ft_greater(int num1, int num2)

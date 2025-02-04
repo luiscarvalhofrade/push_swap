@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:57:35 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/03 17:24:21 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:11:00 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,26 @@ void	update_target_pos_in_b(t_elem **lst1, t_elem **lst2)
 void	cal_cost_a(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*current;
+	int		target_pos;
 
 	current = *lst1;
+	target_pos = current->target_pos->position;
 	while (current)
 	{
 		if (current->position <= ((ft_lstsize(*lst1) - 1) / 2) && \
-			current->target_pos->position <= ((ft_lstsize(*lst2) - 1) / 2))
-			current->cost = ft_greater(current->position, current->target_pos->position);
+			target_pos <= ((ft_lstsize(*lst2) - 1) / 2))
+			current->cost = ft_greater(current->position, target_pos);
 		else if (current->position > (ft_lstsize(*lst1) - 1) / 2 \
-			&& current->target_pos->position > (ft_lstsize(*lst2) - 1) / 2)
+			&& target_pos > (ft_lstsize(*lst2) - 1) / 2)
 			current->cost = ft_greater((ft_lstsize(*lst1) - current->position), \
-					(ft_lstsize(*lst2) - current->target_pos->position));
+					(ft_lstsize(*lst2) - target_pos));
 		else if (current->position <= (ft_lstsize(*lst1) - 1) / 2 \
-			&& current->target_pos->position > (ft_lstsize(*lst2) - 1) / 2)
+			&& target_pos > (ft_lstsize(*lst2) - 1) / 2)
 			current->cost = current->position + ft_lstsize(*lst2) \
-				- current->target_pos->position;
+				- target_pos;
 		else
 			current->cost = ft_lstsize(*lst1) - current->position \
-				+ current->target_pos->position;
+				+ target_pos;
 		current = current->next_number;
 	}
 }
@@ -92,6 +94,8 @@ void	move_elems_to_b(t_elem **lst1, t_elem **lst2)
 {	
 	t_elem	*lower_cost_node;
 
+	if (ft_lstsize(*lst1) > 3 && check_ordered(*lst1) == 0)
+		px(lst1, lst2);
 	if (ft_lstsize(*lst1) > 3 && check_ordered(*lst1) == 0)
 		px(lst1, lst2);
 	while (ft_lstsize(*lst1) > 3 && check_ordered(*lst1) == 0)
