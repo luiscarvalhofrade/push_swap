@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:03:49 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/04 11:15:16 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:50:02 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_target_pos_in_a(t_elem **lst1, t_elem **lst2)
 		while (current1)
 		{
 			if (current1->index > current2->index && \
-				(best_match = NULL || current2->index < best_match->index))
+				(best_match == NULL || current1->index < best_match->index))
 				best_match = current1;
 			current1 = current1->next_number;
 		}
@@ -40,28 +40,28 @@ void	ft_target_pos_in_a(t_elem **lst1, t_elem **lst2)
 
 void	cal_cost_b(t_elem **lst1, t_elem **lst2)
 {
-	t_elem	*current2;
+	t_elem	*current;
 	int		target_pos;
 
-	current2 = *lst2;
-	target_pos = current2->target_pos->position;
-	while (current2)
+	current = *lst2;
+	target_pos = current->target_pos->position;
+	while (current)
 	{
-		if (current2->position <= (ft_lstsize(*lst2) - 1) / 2 \
-			&& target_pos <= (ft_lstsize(*lst1) - 1) / 2)
-			current2->cost = ft_greater(current2->position, target_pos);
-		else if (current2->position > (ft_lstsize(*lst2) - 1) / 2 \
+		if (current->position <= ((ft_lstsize(*lst2) - 1) / 2) && \
+			target_pos <= ((ft_lstsize(*lst1) - 1) / 2))
+			current->cost = ft_greater(current->position, target_pos);
+		else if (current->position > (ft_lstsize(*lst2) - 1) / 2 \
 			&& target_pos > (ft_lstsize(*lst1) - 1) / 2)
-			current2->cost = ft_greater(ft_lstsize(*lst2) - current2->position, \
-					ft_lstsize(*lst1) - target_pos);
-		else if (current2->position <= (ft_lstsize(*lst2) - 1) / 2 \
+			current->cost = ft_greater((ft_lstsize(*lst2) - current->position), \
+					(ft_lstsize(*lst1) - target_pos));
+		else if (current->position <= (ft_lstsize(*lst1) - 1) / 2 \
 			&& target_pos > (ft_lstsize(*lst1) - 1) / 2)
-			current2->cost = current2->position + ft_lstsize(*lst1) \
+			current->cost = current->position + ft_lstsize(*lst1) \
 				- target_pos;
 		else
-			current2->cost = ft_lstsize(*lst2) - current2->position \
+			current->cost = ft_lstsize(*lst2) - current->position \
 				+ target_pos;
-		current2 = current2->next_number;
+		current = current->next_number;
 	}
 }
 

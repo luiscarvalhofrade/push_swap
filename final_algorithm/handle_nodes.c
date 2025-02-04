@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:12:02 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/29 15:07:07 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:47:08 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_elem	*get_biggest_node(t_elem **lst)
 	int		temp_max;
 
 	current = *lst;
-	biggest_node = NULL;
+	biggest_node = current;
 	temp_max = current->index;
 	while (current)
 	{
@@ -41,7 +41,7 @@ t_elem	*get_sec_biggest_node(t_elem **lst)
 
 	current = *lst;
 	biggest_node = get_biggest_node(lst);
-	sec_big_node = NULL;
+	sec_big_node = current;
 	while (current)
 	{
 		if ((current != biggest_node) && (sec_big_node == NULL
@@ -62,7 +62,7 @@ t_elem	*get_third_biggest_node(t_elem **lst)
 	current = *lst;
 	biggest_node = get_biggest_node(lst);
 	sec_big_node = get_sec_biggest_node(lst);
-	third_big_node = NULL;
+	third_big_node = current;
 	while (current)
 	{
 		if ((current != biggest_node) && (current != sec_big_node) && \
@@ -80,8 +80,8 @@ t_elem	*get_smallest_node(t_elem **lst)
 	int		temp_min;
 
 	current = *lst;
+	smallest_node = current;
 	temp_min = current->index;
-	smallest_node = NULL;
 	while (current)
 	{
 		if (current->index < temp_min)
