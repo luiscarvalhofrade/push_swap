@@ -6,11 +6,32 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:43:22 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 16:16:11 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:35:41 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_finish_rotation(t_elem **lst, t_elem *lower_cost, char c)
+{
+	while (*lst != lower_cost)
+	{
+		if (c == 'a')
+		{
+			if (lower_cost->is_above_center == 1)
+				rx(lst);
+			else
+				rrx(lst);
+		}
+		else
+		{
+			if (lower_cost->is_above_center == 1)
+				rx(lst);
+			else
+				rrx(lst);
+		}
+	}
+}
 
 void	perform_final_ra_or_rra(t_elem **lst)
 {

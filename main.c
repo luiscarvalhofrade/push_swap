@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:56:44 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/04 14:57:15 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:17:44 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	final_algo(&lsta, &lstb);
-	movement_result(lsta, lstb);
+	//movement_result(lsta, lstb);
 	free_lst(lsta);
 	free_lst(lstb);
 	return (0);

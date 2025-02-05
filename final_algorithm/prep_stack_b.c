@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_final_stack_b.c                               :+:      :+:    :+:   */
+/*   prep_stack_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:03:49 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/04 13:50:02 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:33:20 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,27 @@ void	ft_target_pos_in_a(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*current1;
 	t_elem	*current2;
-	t_elem	*best_match;
+	t_elem	*target;
+	long	best_match;
 
 	current2 = *lst2;
 	while (current2)
 	{
-		best_match = NULL;
+		best_match = LONG_MAX;
 		current1 = *lst1;
 		while (current1)
 		{
-			if (current1->index > current2->index && \
-				(best_match == NULL || current1->index < best_match->index))
-				best_match = current1;
+			if (current1->index > current2->index && current1->index < best_match)
+			{
+				best_match = current1->index;
+				target = current1;
+			}
 			current1 = current1->next_number;
 		}
-		if (best_match)
-			current2->target_pos = best_match;
-		else
+		if (best_match == LONG_MAX)
 			current2->target_pos = get_smallest_node(lst1);
+		else
+			current2->target_pos = target;
 		current2 = current2->next_number;
 	}
 }
@@ -41,26 +44,24 @@ void	ft_target_pos_in_a(t_elem **lst1, t_elem **lst2)
 void	cal_cost_b(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*current;
-	int		target_pos;
 
 	current = *lst2;
-	target_pos = current->target_pos->position;
 	while (current)
 	{
 		if (current->position <= ((ft_lstsize(*lst2) - 1) / 2) && \
-			target_pos <= ((ft_lstsize(*lst1) - 1) / 2))
-			current->cost = ft_greater(current->position, target_pos);
+			current->target_pos->position <= ((ft_lstsize(*lst1) - 1) / 2))
+			current->cost = ft_greater(current->position, current->target_pos->position);
 		else if (current->position > (ft_lstsize(*lst2) - 1) / 2 \
-			&& target_pos > (ft_lstsize(*lst1) - 1) / 2)
+			&& current->target_pos->position > (ft_lstsize(*lst1) - 1) / 2)
 			current->cost = ft_greater((ft_lstsize(*lst2) - current->position), \
-					(ft_lstsize(*lst1) - target_pos));
+					(ft_lstsize(*lst1) - current->target_pos->position));
 		else if (current->position <= (ft_lstsize(*lst1) - 1) / 2 \
-			&& target_pos > (ft_lstsize(*lst1) - 1) / 2)
+			&& current->target_pos->position > (ft_lstsize(*lst1) - 1) / 2)
 			current->cost = current->position + ft_lstsize(*lst1) \
-				- target_pos;
+				- current->target_pos->position;
 		else
 			current->cost = ft_lstsize(*lst2) - current->position \
-				+ target_pos;
+				+ current->target_pos->position;
 		current = current->next_number;
 	}
 }
