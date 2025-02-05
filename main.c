@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:56:44 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/30 17:03:50 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:17:44 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ void	movement_result(t_elem *lst1, t_elem *lst2)
 		printf("[%c]no[%d]pos:%d\n", current->stack_letter, current->index, current->position);
 		current = current->next_number;
 	}
-	printf("\n stack b\n\n");
 	if (lst2)
+		printf("ok");
+	printf("\n stack b\n\n");
+	// if (lst2)
 	// {
 	// 	currentb = lst2;
 	// 	while (currentb)
@@ -34,7 +36,7 @@ void	movement_result(t_elem *lst1, t_elem *lst2)
 	// 		currentb = currentb->next_number;
 	// 	}
 	// }
-		printf("\n===============\n");
+	// printf("\n===============\n");
 }
 
 void	free_lst(t_elem *lst)
@@ -69,9 +71,8 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	//update_pos_n_target_pos(&lsta, &lstb);
 	final_algo(&lsta, &lstb);
-	movement_result(lsta, lstb);
+	//movement_result(lsta, lstb);
 	free_lst(lsta);
 	free_lst(lstb);
 	return (0);

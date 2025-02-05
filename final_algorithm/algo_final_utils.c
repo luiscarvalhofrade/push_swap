@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:30:28 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/30 17:19:35 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:35:30 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	update_pos(t_elem **lst)
 	t_elem	*current;
 	int		i;
 	int		center_line;
-	int		lst_size;
 
 	current = *lst;
-	lst_size = ft_lstsize(*lst);
-	center_line = (lst_size / 2);
+	center_line = ((ft_lstsize(*lst) - 1) / 2);
 	i = 0;
 	while (current)
 	{
@@ -54,31 +52,6 @@ t_elem	*get_lower_cost_node(t_elem **lst)
 		current = current->next_number;
 	}
 	return (lower_cost_node);
-}
-
-void	ft_finish_rotation(t_elem **lst, t_elem *lower_cost, char c)
-{
-	t_elem	*current;
-
-	current = *lst;
-	while (current != lower_cost)
-	{
-		if (c == 'a')
-		{
-			if (lower_cost->is_above_center == 1)
-				rx(lst);
-			else
-				rrx(lst);
-		}
-		else
-		{
-			if (lower_cost->is_above_center == 1)
-				rx(lst);
-			else
-				rrx(lst);
-		}
-	}
-	current = current->next_number;
 }
 
 int	ft_greater(int num1, int num2)
