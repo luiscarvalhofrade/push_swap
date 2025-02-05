@@ -1,63 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_final_utils.c                                 :+:      :+:    :+:   */
+/*   handle_nodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 15:30:28 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 17:35:30 by luide-ca         ###   ########.fr       */
+/*   Created: 2025/01/28 18:12:02 by luide-ca          #+#    #+#             */
+/*   Updated: 2025/02/05 18:49:53 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	update_pos(t_elem **lst)
+t_elem	*get_biggest_node(t_elem **lst)
 {
 	t_elem	*current;
-	int		i;
-	int		center_line;
+	t_elem	*biggest_node;
+	int		temp_max;
 
 	current = *lst;
-	center_line = ((ft_lstsize(*lst) - 1) / 2);
-	i = 0;
+	biggest_node = current;
+	temp_max = current->index;
 	while (current)
 	{
-		current->position = i;
-		if (current->position <= center_line)
-			current->is_above_center = 1;
-		else if (current->position > center_line)
-			current->is_above_center = 0;
-		i++;
-		current = current->next_number;
-	}
-}
-
-t_elem	*get_lower_cost_node(t_elem **lst)
-{
-	t_elem	*current;
-	t_elem	*lower_cost_node;
-	int		temp_min;
-
-	current = *lst;
-	temp_min = current->cost;
-	lower_cost_node = current;
-	while (current)
-	{
-		if (current->cost < temp_min)
+		if (current->index > temp_max)
 		{
-			temp_min = current->cost;
-			lower_cost_node = current;
+			temp_max = current->index;
+			biggest_node = current;
 		}
 		current = current->next_number;
 	}
-	return (lower_cost_node);
+	return (biggest_node);
 }
 
-int	ft_greater(int num1, int num2)
+t_elem	*get_smallest_node(t_elem **lst)
 {
-	if (num1 > num2)
-		return (num1);
-	else
-		return (num2);
+	t_elem	*current;
+	t_elem	*smallest_node;
+	int		temp_min;
+
+	current = *lst;
+	smallest_node = current;
+	temp_min = current->index;
+	while (current)
+	{
+		if (current->index < temp_min)
+		{
+			temp_min = current->index;
+			smallest_node = current;
+		}
+		current = current->next_number;
+	}
+	return (smallest_node);
 }

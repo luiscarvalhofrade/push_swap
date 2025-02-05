@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 17:03:20 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/28 15:11:03 by luide-ca         ###   ########.fr       */
+/*   Created: 2025/01/29 14:19:52 by luide-ca          #+#    #+#             */
+/*   Updated: 2025/02/05 18:56:22 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
 void	algo_case_2(t_elem **lst)
 {
@@ -29,5 +29,4 @@ void	algo_case_2(t_elem **lst)
 	second = first->next_number;
 	if (first->index > second->index)
 		sx(lst);
-	return ;
 }

@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_proprietary.c                                 :+:      :+:    :+:   */
+/*   algo_case_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 15:06:03 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/29 14:29:22 by luide-ca         ###   ########.fr       */
+/*   Created: 2025/02/05 18:34:59 by luide-ca          #+#    #+#             */
+/*   Updated: 2025/02/05 18:58:21 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	proprietary_algo(t_elem **lst1, t_elem **lst2)
+void	algo_case_3(t_elem **lst1, t_elem **lst2)
 {
-	int	lst_size;
+	t_elem	*lower_cost_node;
 
-	lst_size = ft_lstsize(*lst1);
-	if (lst_size == 2)
-	{
-		algo_case_1(lst1);
-		return ;
-	}
-	else if (lst_size == 3)
-	{
+	move_elems_to_b(lst1, lst2);
+	if (check_ordered(*lst1) == 0)
 		algo_case_2(lst1);
-		return ;
-	}
-	else if (lst_size > 3)
+	while (ft_lstsize(*lst2) != 0)
 	{
-		algo_case_3(lst1, lst2);
-		return ;
+		lower_cost_node = ft_init_b(lst1, lst2);
+		ft_move_b(lst1, lst2, lower_cost_node);
 	}
-	return ;
+	update_pos(lst1);
+	perform_final_ra_or_rra(lst1);
 }

@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:57:35 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 17:33:14 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:01:42 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,61 +14,61 @@
 
 void	update_target_pos_in_b(t_elem **lst1, t_elem **lst2)
 {
-	t_elem	*current1;
-	t_elem	*current2;
+	t_elem	*no1;
+	t_elem	*no2;
 	t_elem	*target;
 	long	best_match;
 
-	current1 = *lst1;
-	while (current1)
+	no1 = *lst1;
+	while (no1)
 	{
 		best_match = LONG_MIN;
-		current2 = *lst2;
-		while (current2)
+		no2 = *lst2;
+		while (no2)
 		{
-			if (current2->index < current1->index && current2->index > best_match)
+			if (no2->index < no1->index && no2->index > best_match)
 			{
-				best_match = current2->index;
-				target = current2;
+				best_match = no2->index;
+				target = no2;
 			}
-			current2 = current2->next_number;
+			no2 = no2->next_number;
 		}
 		if (best_match == LONG_MIN)
-			current1->target_pos = get_biggest_node(lst2);
+			no1->target_pos = get_biggest_node(lst2);
 		else
-			current1->target_pos =  target;
-		current1 = current1->next_number;
+			no1->target_pos = target;
+		no1 = no1->next_number;
 	}
 }
 
 void	cal_cost_a(t_elem **lst1, t_elem **lst2)
 {
-	t_elem	*current;
+	t_elem	*no;
 
-	current = *lst1;
-	while (current)
+	no = *lst1;
+	while (no)
 	{
-		if (current->position <= ((ft_lstsize(*lst1) - 1) / 2) && \
-			current->target_pos->position <= ((ft_lstsize(*lst2) - 1) / 2))
-			current->cost = ft_greater(current->position, current->target_pos->position);
-		else if (current->position > (ft_lstsize(*lst1) - 1) / 2 \
-			&& current->target_pos->position > (ft_lstsize(*lst2) - 1) / 2)
-			current->cost = ft_greater((ft_lstsize(*lst1) - current->position), \
-					(ft_lstsize(*lst2) - current->target_pos->position));
-		else if (current->position <= (ft_lstsize(*lst1) - 1) / 2 \
-			&& current->target_pos->position > (ft_lstsize(*lst2) - 1) / 2)
-			current->cost = current->position + ft_lstsize(*lst2) \
-				- current->target_pos->position;
+		if (no->position <= ((ft_lstsize(*lst1) - 1) / 2) && \
+			no->target_pos->position <= ((ft_lstsize(*lst2) - 1) / 2))
+			no->cost = ft_greater(no->position, no->target_pos->position);
+		else if (no->position > (ft_lstsize(*lst1) - 1) / 2 \
+			&& no->target_pos->position > (ft_lstsize(*lst2) - 1) / 2)
+			no->cost = ft_greater((ft_lstsize(*lst1) - no->position), \
+					(ft_lstsize(*lst2) - no->target_pos->position));
+		else if (no->position <= (ft_lstsize(*lst1) - 1) / 2 \
+			&& no->target_pos->position > (ft_lstsize(*lst2) - 1) / 2)
+			no->cost = no->position + ft_lstsize(*lst2) \
+				- no->target_pos->position;
 		else
-			current->cost = ft_lstsize(*lst1) - current->position \
-				+ current->target_pos->position;
-		current = current->next_number;
+			no->cost = ft_lstsize(*lst1) - no->position \
+				+ no->target_pos->position;
+		no = no->next_number;
 	}
 }
 
 t_elem	*ft_init_a(t_elem **lst1, t_elem **lst2)
 {
-	t_elem	*lower_cost = NULL;
+	t_elem	*lower_cost;
 
 	update_pos(lst1);
 	update_pos(lst2);
@@ -92,7 +92,7 @@ void	ft_move_a(t_elem **lst1, t_elem **lst2, t_elem *lower_cost_node)
 }
 
 void	move_elems_to_b(t_elem **lst1, t_elem **lst2)
-{	
+{
 	t_elem	*lower_cost_node;
 
 	if (ft_lstsize(*lst1) > 3 && check_ordered(*lst1) == 0)

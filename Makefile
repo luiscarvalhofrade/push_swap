@@ -15,28 +15,15 @@ SRCS = 	main.c \
 		utils/ft_atoi.c \
 		movements/movements.c \
 		movements/movements_aggregated.c \
-		final_algorithm/prep_stack_a.c \
-		final_algorithm/prep_stack_b.c \
-		final_algorithm/algo_final_utils.c \
-		final_algorithm/algo_final.c \
-		final_algorithm/perform_movements.c \
-		final_algorithm/handle_nodes.c \
-		final_algorithm/algo_case_1.c \
-		final_algorithm/algo_case_2.c \
-		# proprietary_algorithm/algo_case_1.c \
-		# proprietary_algorithm/algo_case_2.c \
-		# proprietary_algorithm/algo_case_3.c \
-		# proprietary_algorithm/algo_proprietary.c \
-		# proprietary_algorithm/algo_proprietary_utils.c \
-		# proprietary_algorithm/handle_nodes.c \
-		# algorithms/mia/update_pos_n_target_pos.c \
-		# algorithms/mia/calculate_mov_costs.c \
-		# algorithms/mia/algo_case_1.c \
-		# algorithms/mia/algo_case_2.c \
-		# algorithms/mia/algo_case_3.c \
-		# algorithms/mia/algo_mia.c \
-		# algorithms/radix/algo_radix.c \
-		# algorithms/radix/algo_radix_utils.c \
+		algorithm/prep_stack_a.c \
+		algorithm/prep_stack_b.c \
+		algorithm/algo_utils.c \
+		algorithm/algorithm.c \
+		algorithm/perform_movements.c \
+		algorithm/handle_nodes.c \
+		algorithm/algo_case_1.c \
+		algorithm/algo_case_2.c \
+		algorithm/algo_case_3.c
 
 # objects
 OBJECTS = $(SRCS:.c=.o)
