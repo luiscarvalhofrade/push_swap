@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:43:22 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/04 14:47:56 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:17:48 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,17 @@
 void	perform_final_ra_or_rra(t_elem **lst)
 {
 	t_elem	*smallest_node;
-	int		pos;
-	int		lst_size;
 
 	smallest_node = get_smallest_node(lst);
-	pos = smallest_node->position;
-	lst_size = ft_lstsize(*lst);
 	if (smallest_node->is_above_center == 1)
 	{
 		while (*lst != smallest_node)
-		{
 			rx(lst);
-			// pos--;
-		}
 	}
 	else if (smallest_node->is_above_center == 0)
 	{
 		while (*lst != smallest_node)
-		{
 			rrx(lst);
-			// pos = pos - (lst_size + 1);
-		}
 	}
 }
 
