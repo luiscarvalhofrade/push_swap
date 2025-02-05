@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:30:28 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/04 11:11:32 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:26:55 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	update_pos(t_elem **lst)
 	t_elem	*current;
 	int		i;
 	int		center_line;
-	int		lst_size;
 
 	current = *lst;
-	lst_size = ft_lstsize(*lst);
-	center_line = (lst_size / 2);
+	center_line = ((ft_lstsize(*lst) - 1) / 2);
 	i = 0;
 	while (current)
 	{
