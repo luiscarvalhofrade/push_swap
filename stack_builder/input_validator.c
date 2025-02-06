@@ -6,35 +6,35 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:04:14 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 18:41:28 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:12:57 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	input_duplicates_validator(t_elem **lst)
-// {
-// 	int		current_number;
-// 	t_elem	*current_node;
-// 	t_elem	*iteration_node;
+int	input_duplicates_validator(t_elem **lst)
+{
+	int		current_number;
+	t_elem	*current_node;
+	t_elem	*iteration_node;
 
-// 	if (!lst || !*lst)
-// 		return (0);
-// 	current_node = *lst;
-// 	while (current_node)
-// 	{
-// 		current_number = (current_node)->number;
-// 		iteration_node = (current_node)->next_number;
-// 		while (iteration_node->next_number != NULL)
-// 		{
-// 			if (current_number == iteration_node->number)
-// 				return (0);
-// 			iteration_node = iteration_node->next_number;
-// 		}
-// 		current_node = current_node->next_number;
-// 	}
-// 	return (1);
-// }
+	if (!lst || !*lst)
+		return (0);
+	current_node = *lst;
+	while (current_node)
+	{
+		current_number = (current_node)->number;
+		iteration_node = (current_node)->next_number;
+		while (iteration_node)
+		{
+			if (current_number == iteration_node->number)
+				return (0);
+			iteration_node = iteration_node->next_number;
+		}
+		current_node = current_node->next_number;
+	}
+	return (1);
+}
 
 int	ft_nbr(char *nbr)
 {

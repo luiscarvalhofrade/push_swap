@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:56:44 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 18:57:34 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:12:40 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	t_elem	*lsta;
 	t_elem	*lstb;
 	int		val_res;
+	int		val_dup;
 
 	lsta = NULL;
 	lstb = NULL;
@@ -39,7 +40,8 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	lsta = stack_builder(argc, argv);
-	if (!lsta || lsta == 0)
+	val_dup = input_duplicates_validator(&lsta);
+	if (!lsta || lsta == 0 || val_dup == 0)
 	{
 		write(2, "Error\n", 6);
 		return (0);

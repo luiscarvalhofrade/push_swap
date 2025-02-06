@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:23:49 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 18:56:12 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:10:41 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_ordered(t_elem *lst)
 	if (lst == NULL)
 		return (0);
 	current = lst;
-	while (current)
+	while (current->next_number)
 	{
 		if (current->index > current->next_number->index)
 			return (0);
