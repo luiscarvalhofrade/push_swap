@@ -6,13 +6,13 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:03:49 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 18:59:55 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:49:58 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_target_pos_in_a(t_elem **lst1, t_elem **lst2)
+static void	ft_target_pos_in_a(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*no1;
 	t_elem	*no2;
@@ -41,7 +41,7 @@ void	ft_target_pos_in_a(t_elem **lst1, t_elem **lst2)
 	}
 }
 
-void	cal_cost_b(t_elem **lst1, t_elem **lst2)
+static void	cal_cost_b(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*no;
 

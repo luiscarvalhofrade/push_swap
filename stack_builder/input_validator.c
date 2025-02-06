@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:04:14 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/06 11:12:57 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:10:41 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,14 @@ int	input_duplicates_validator(t_elem **lst)
 	return (1);
 }
 
-int	ft_nbr(char *nbr)
+static int	ft_nbr(char *nbr)
 {
+	if (*nbr == '\0')
+		return (0);
 	if (*nbr == '-' || *nbr == '+')
 		nbr++;
+	if (*nbr == '\0')
+		return (0);
 	while (*nbr)
 	{
 		if (!(*nbr >= '0' && *nbr <= '9'))
@@ -49,7 +53,7 @@ int	ft_nbr(char *nbr)
 	return (1);
 }
 
-int	input_item_validator(char **argv, int argc, int i)
+static int	input_item_validator(char **argv, int argc, int i)
 {
 	while (i < argc)
 	{
@@ -60,13 +64,21 @@ int	input_item_validator(char **argv, int argc, int i)
 	return (1);
 }
 
+static void	need_free(int should_free, char **argv, int argc)
+{
+	if (should_free == 1)
+		ft_free_split(argv, argc);
+}
+
 int	input_validator(int argc, char **argv)
 {
 	char	**final_argv;
 	int		final_argc;
 	int		i;
+	int		should_free;
 
 	i = 0;
+	should_free = 0;
 	final_argv = input_argv_validator(argc, argv);
 	if (!final_argv)
 		return (0);
@@ -74,14 +86,15 @@ int	input_validator(int argc, char **argv)
 	if (argc == 2)
 	{
 		i = 0;
-		ft_free_split(final_argv, final_argc);
+		should_free = 1;
 	}
 	else if (argc >= 3)
 		i = 1;
 	if (input_item_validator(final_argv, final_argc, i) == 0)
 	{
-		ft_free_split(final_argv, final_argc);
+		need_free(should_free, final_argv, final_argc);
 		return (0);
 	}
+	need_free(should_free, final_argv, final_argc);
 	return (1);
 }

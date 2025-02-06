@@ -6,13 +6,13 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:46:22 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/01/22 12:12:15 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:54:52 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_elem	*find_min_unvisited(t_elem *head)
+static t_elem	*find_min_unvisited(t_elem *head)
 {
 	t_elem	*min_node;
 	int		min_value;

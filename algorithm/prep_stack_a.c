@@ -6,13 +6,13 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:57:35 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/02/05 19:01:42 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:50:34 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	update_target_pos_in_b(t_elem **lst1, t_elem **lst2)
+static void	update_target_pos_in_b(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*no1;
 	t_elem	*no2;
@@ -41,7 +41,7 @@ void	update_target_pos_in_b(t_elem **lst1, t_elem **lst2)
 	}
 }
 
-void	cal_cost_a(t_elem **lst1, t_elem **lst2)
+static void	cal_cost_a(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*no;
 
@@ -66,7 +66,7 @@ void	cal_cost_a(t_elem **lst1, t_elem **lst2)
 	}
 }
 
-t_elem	*ft_init_a(t_elem **lst1, t_elem **lst2)
+static t_elem	*ft_init_a(t_elem **lst1, t_elem **lst2)
 {
 	t_elem	*lower_cost;
 
@@ -78,7 +78,7 @@ t_elem	*ft_init_a(t_elem **lst1, t_elem **lst2)
 	return (lower_cost);
 }
 
-void	ft_move_a(t_elem **lst1, t_elem **lst2, t_elem *lower_cost_node)
+static void	ft_move_a(t_elem **lst1, t_elem **lst2, t_elem *lower_cost_node)
 {
 	if (lower_cost_node->is_above_center == 1 && \
 		lower_cost_node->target_pos->is_above_center == 1)

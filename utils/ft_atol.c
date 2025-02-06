@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luide-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:14:49 by luide-ca          #+#    #+#             */
-/*   Updated: 2024/10/15 17:14:50 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:36:03 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(char *str)
 {
-	int	value;
-	int	minus;
+	long	nbr;
+	long	minus;
+	long	i;
 
-	value = 0;
+	i = 0;
+	nbr = 0;
 	minus = 1;
-	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\r'
-		|| *nptr == '\n' || *nptr == '\v' || *nptr == '\f')
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	while (str[i] == 32 || str[i] == '\t' || str[i] == '\v'
+		|| str[i] == '\n' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-')
+		minus = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (*nptr == '-')
-			minus *= -1;
-		nptr++;
+		nbr = nbr * 10 + (str[i] - '0');
+		i++;
 	}
-	while (*nptr && ('0' <= *nptr && *nptr <= '9'))
-	{
-		value = value * 10 + (*nptr - '0');
-		nptr++;
-	}
-	return (minus * value);
+	return (nbr * minus);
 }

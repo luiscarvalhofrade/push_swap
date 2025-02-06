@@ -53,27 +53,21 @@ void	algo_case_3(t_elem **lst1, t_elem **lst2);
 void	update_pos(t_elem **lst);
 void	final_algo(t_elem **lst1, t_elem **lst2);
 void	ft_move_b(t_elem **lst1, t_elem **lst2, t_elem *lower_cost_node);
-void	ft_move_a(t_elem **lst1, t_elem **lst2, t_elem *lower_cost_node);
 void	ft_finish_rotation(t_elem **lst, t_elem *lower_cost, char c);
 void	move_elems_to_b(t_elem **lst1, t_elem **lst2);
-void	cal_cost_a(t_elem **lst1, t_elem **lst2);
-void	cal_cost_b(t_elem **lst1, t_elem **lst2);
 int		ft_greater(int num1, int num2);
+t_elem	*get_biggest_node(t_elem **lst);
+t_elem	*get_smallest_node(t_elem **lst);
+t_elem	*get_lower_cost_node(t_elem **lst);
+t_elem	*ft_init_b(t_elem **lst1, t_elem **lst2);
 
 int		check_ordered(t_elem *lst);
 int		input_duplicates_validator(t_elem **lst);
 int		input_argc_validator(int argc, char **argv);
 int		ft_count_items(const char *s, char c);
-int		ft_atoi(const char *nptr);
-int		input_item_validator(char **argv, int argc, int i);
+long	ft_atol(char *str);
 int		input_validator(int argc, char **argv);
-int		ft_nbr(char *nbr);
 t_elem	*stack_builder(int argc, char **argv);
-
-t_elem	*get_biggest_node(t_elem **lst);
-t_elem	*get_smallest_node(t_elem **lst);
-t_elem	*get_lower_cost_node(t_elem **lst);
-t_elem	*ft_init_b(t_elem **lst1, t_elem **lst2);
 
 char	**ft_split(char const *s, char c);
 char	**input_argv_validator(int argc, char **argv);
